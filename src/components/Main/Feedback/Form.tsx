@@ -1,10 +1,11 @@
 import { Button, DragAndDrop, Input, Textarea } from '@/components'
 import { required } from '@/helpers/validation'
 import { useForm } from '@/hooks'
-import { ButtonSize, ButtonType } from '@/types'
+import { ButtonSize, ButtonType, Constants } from '@/types'
 
 import cl from './style.module.scss'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
 
 type FeedbackFormValues = {
 	email: string
@@ -13,14 +14,30 @@ type FeedbackFormValues = {
 }
 
 export const Form = () => {
-	const { errors, handleSubmit, onChange, state } = useForm<FeedbackFormValues>(
-		{ email: '', file: undefined, text: '' },
-		{ email: required, file: null, text: null }
-	)
+	const { errors, handleSubmit, onChange, state, reset } =
+		useForm<FeedbackFormValues>(
+			{ email: '', file: undefined, text: '' },
+			{ email: required, file: null, text: null }
+		)
 
-	const onSubmit = () => {
-		console.log(state)
+	const sendForm = async () => {
+		try {
+			await fetch(`${Constants.BASE_URL}/form/questions`, {
+				method: 'POST',
+				body: JSON.stringify(state)
+			})
+
+			toast('Форма успешно отправлена', { type: 'success' })
+			reset()
+		} catch (e) {
+			console.log(e)
+			if (e instanceof Error) {
+				toast(e.message, { type: 'error' })
+			}
+		}
 	}
+
+	const onSubmit = () => sendForm()
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e, onSubmit)} className={cl.container}>
