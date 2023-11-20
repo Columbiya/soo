@@ -95,8 +95,8 @@ export default function Home({
 						loop
 						controls={false}
 					>
-						Sorry, your browser doesn't support embedded videos, but don't
-						worry, you can
+						Sorry, your browser doesn&apos;t support embedded videos, but
+						don&apos;t worry, you can
 						<a href="/main-video.mp4">download it</a>
 						and watch it with your favorite video player!
 					</video>

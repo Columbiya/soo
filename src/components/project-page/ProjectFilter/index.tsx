@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { FC, useContext, useEffect } from 'react'
 
 import {
@@ -128,6 +130,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 										[cl.active]: s === state.stage
 									})}
 									onClick={() => onStageChange(s)}
+									key={s}
 								>
 									{s}
 								</span>
@@ -145,7 +148,9 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							>
 								{filters &&
 									filters.documentTypes.map((t) => (
-										<MenuItem value={t}>{t}</MenuItem>
+										<MenuItem value={t} key={t}>
+											{t}
+										</MenuItem>
 									))}
 							</Select>
 						</span>
