@@ -14,6 +14,8 @@
 }
 
 .feedBackContainer {
+	position: relative;
+	z-index: 5;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 40px;
@@ -41,10 +43,13 @@
 }
 
 .feedback {
+	position: relative;
+	overflow: hidden;
+
 	background-color: $blue-secondary;
 	padding: 90px 0 60px;
 
-	@include mobile {
+	@include tablet {
 		padding: 40px 0 24px;
 	}
 }
@@ -60,4 +65,11 @@
 
 .textarea {
 	min-height: 160px;
+}
+
+.backgroundImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
 }

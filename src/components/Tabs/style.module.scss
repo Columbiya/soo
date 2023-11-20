@@ -1,4 +1,5 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .tabs {
 	width: 100%;
@@ -13,11 +14,62 @@
 		transition: background-color 0.5s ease;
 
 		&.active {
-			background: $tabs-active;
+			background: #eff5fc;
+		}
+
+		@include tablet {
+			display: block;
+			text-align: center;
 		}
 	}
 }
 
+.slide {
+	display: grid;
+	place-items: center;
+	align-items: center;
+}
+
 .content {
 	margin-top: 24px;
+}
+
+.tabs {
+	@include tablet {
+		display: none;
+	}
+}
+
+.tabsSlider {
+	display: none;
+	position: relative;
+
+	@include tablet {
+		display: block;
+	}
+}
+
+.navBtn {
+	width: 33px;
+	height: 33px;
+
+	border-radius: 50%;
+
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	z-index: 5;
+
+	display: grid;
+	place-items: center;
+	padding: 0;
+
+	&.prev {
+		left: 15px;
+	}
+
+	&.next {
+		right: 15px;
+	}
 }

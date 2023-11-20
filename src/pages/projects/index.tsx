@@ -48,19 +48,21 @@ export default function Projects({ projects }: { projects: string }) {
 				<title>Проекты</title>
 			</Head>
 			<ProjectsContextProvider>
-				<Container>
-					<PageTitle>проекты</PageTitle>
+				<div className={cl.projectsContainer}>
+					<Container>
+						<PageTitle>проекты</PageTitle>
 
-					<div className={cl.listContainer}>
-						<div>
-							<ProjectsList
-								items={projectsParsed.data}
-								totalCount={projectsParsed.totalCount}
-							/>
+						<div className={cl.listContainer}>
+							<div>
+								<ProjectsList
+									items={projectsParsed.data}
+									totalCount={projectsParsed.totalCount}
+								/>
+							</div>
+							<FeedbackForm />
 						</div>
-						<FeedbackForm />
-					</div>
-				</Container>
+					</Container>
+				</div>
 			</ProjectsContextProvider>
 		</>
 	)

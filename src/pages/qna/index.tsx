@@ -3,6 +3,8 @@ import { Constants } from '@/types'
 import { MainContentResponseType } from '@/types/fetch'
 import Head from 'next/head'
 
+import cl from './page.module.scss'
+
 export async function getServerSideProps() {
 	const content = (await fetch(`${Constants.BASE_URL}/content/main`).then(
 		(res) => res.json()
@@ -24,7 +26,7 @@ export default function QnaPage({ questionsAndAnswers }: QnaProps) {
 				<title>Вопросы и ответы</title>
 			</Head>
 
-			<QNA questionsAndAnswers={questionsAndAnswers} />
+			<QNA questionsAndAnswers={questionsAndAnswers} className={cl.qna} />
 		</>
 	)
 }

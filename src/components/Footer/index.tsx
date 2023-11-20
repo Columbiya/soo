@@ -27,7 +27,7 @@ export const Footer = () => {
 				<div className={cl.content}>
 					<div>
 						<span>© 2023 «Общественные обсуждения». Все права защищены</span>
-						<span>
+						<span className={cl.withImage}>
 							<img
 								src="/images/common/footer/rb.svg"
 								className={cl.rbIcon}

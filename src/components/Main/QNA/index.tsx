@@ -4,12 +4,17 @@ import cl from './style.module.scss'
 import { TabsItem } from '@/components/Tabs/types'
 import { Tab } from './Tab'
 import { QuestionsAndAnswersItem } from '@/types/fetch'
+import { classNames } from '@/helpers'
+import { usePathname } from 'next/navigation'
 
 type QnaProps = {
 	questionsAndAnswers: QuestionsAndAnswersItem[]
+	className?: string
 }
 
-export const QNA: FC<QnaProps> = ({ questionsAndAnswers }) => {
+export const QNA: FC<QnaProps> = ({ questionsAndAnswers, className }) => {
+	const pathname = usePathname()
+
 	const tabItems = useMemo<TabsItem[]>(
 		() =>
 			questionsAndAnswers?.map(({ accordion, title }) => ({
@@ -30,8 +35,14 @@ export const QNA: FC<QnaProps> = ({ questionsAndAnswers }) => {
 		[questionsAndAnswers]
 	)
 
+	console.log({ pathname })
+
 	return (
-		<section className={cl.qna}>
+		<section
+			className={classNames(cl.qna, className, {
+				[cl.noPadding]: pathname === '/qna'
+			})}
+		>
 			<Container>
 				<BlockTitle>Вопросы и ответы</BlockTitle>
 

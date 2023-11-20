@@ -1,0 +1,60 @@
+@import '@/assets/variables';
+@import '@/assets/breakpoints';
+
+.tab {
+	background-color: #eff5fc;
+	padding: 32px;
+
+	@include tablet {
+		padding: 20px;
+	}
+}
+
+.alert {
+	font-size: 20px;
+	margin-bottom: 56px;
+	a {
+		color: $blue-primary;
+		font-size: 20px;
+	}
+
+	p {
+		margin-top: 10px;
+	}
+
+	strong {
+		line-height: 24px;
+	}
+}
+
+.title {
+	font-size: 28px;
+	line-height: 37px;
+	text-transform: uppercase;
+	color: #383838;
+
+	margin-bottom: 40px;
+
+	@include tablet {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 24px;
+		margin-bottom: 20px;
+	}
+}
+
+.accordion {
+	background: white;
+
+	& > header {
+		background: white;
+	}
+}
+
+.subtitle {
+	font-size: 20px;
+	line-height: 27px;
+	font-weight: 500;
+
+	margin-bottom: 20px;
+}

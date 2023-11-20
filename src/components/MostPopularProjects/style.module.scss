@@ -21,6 +21,21 @@
 		font-size: 18px;
 		font-weight: 500;
 	}
+
+	@include mobile {
+		display: none;
+		width: 100%;
+
+		margin-top: 24px;
+	}
+
+	&.mobile {
+		display: none;
+
+		@include mobile {
+			display: block;
+		}
+	}
 }
 
 .image {
@@ -45,5 +60,28 @@
 
 	& > div {
 		box-shadow: 1px 1px 3px #ccc;
+	}
+
+	@include desktop {
+		grid-template-columns: 50% 50% 50%;
+	}
+
+	@include tablet_small {
+		grid-template-columns: 100% 100% 100%;
+		margin-bottom: 12px;
+	}
+}
+
+.scrollContainer {
+	@include desktop {
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			background-color: rgba($white, 0.6);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $white;
+		}
 	}
 }

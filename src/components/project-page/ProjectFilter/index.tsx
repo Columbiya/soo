@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react'
+import { FC, useContext, useEffect } from 'react'
 
 import {
 	ProjectFilterParams,
@@ -82,6 +82,14 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 		}
 	}
 
+	useEffect(() => {
+		if (!filters) return
+
+		onChange('period')(filters.periods[0] || '')
+		onChange('locality')(filters.localities[0] || '')
+		onChange('documentType')(filters.documentTypes[0] || '')
+	}, [filters])
+
 	return (
 		<div className={cl.filter}>
 			<form onSubmit={(e) => handleSubmit(e, onSubmit)}>
@@ -89,6 +97,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 					<Select
 						value={state.locality}
 						onChange={(e) => onChange('locality')(e.target.value)}
+						className={cl.localitySelect}
 					>
 						{filters &&
 							filters.localities.map((l) => (
@@ -140,7 +149,21 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 									))}
 							</Select>
 						</span>
-						<span>Период: </span>
+						<span>
+							Период:
+							<Select
+								onChange={(e) => onChange('period')(e.target.value)}
+								value={state.period}
+								className="plain-select"
+							>
+								{filters &&
+									filters.periods.map((p) => (
+										<MenuItem key={p} value={p}>
+											{p}
+										</MenuItem>
+									))}
+							</Select>
+						</span>
 					</div>
 					<div>
 						<span>
@@ -157,7 +180,11 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 								))}
 							</Select>
 						</span>
-						<ShowAsToggle list={showAsList} onToggle={onChangeAsList} />
+						<ShowAsToggle
+							list={showAsList}
+							onToggle={onChangeAsList}
+							className={cl.showAs}
+						/>
 					</div>
 				</div>
 			</form>

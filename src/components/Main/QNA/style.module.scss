@@ -1,4 +1,5 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .active {
 	color: $blue-primary;
@@ -15,7 +16,19 @@
 }
 
 .qna {
+	background: $white;
 	margin: 100px 0;
+	padding: 100px 0;
+
+	@include mobile {
+		margin: 40px 0;
+		padding: 40px 0;
+	}
+
+	&.noPadding {
+		padding: 0;
+		margin: 24px 0;
+	}
 }
 
 .tabs {

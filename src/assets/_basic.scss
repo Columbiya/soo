@@ -72,6 +72,10 @@ html::-webkit-scrollbar-track {
 	padding-top: 180px;
 	background-color: $blue-secondary;
 	flex: 1;
+
+	@media screen and (max-width: 992px) {
+		padding-top: 120px;
+	}
 }
 
 .plain-select {
@@ -82,4 +86,8 @@ html::-webkit-scrollbar-track {
 
 		border: none !important;
 	}
+}
+
+.whiteBackground {
+	background-color: $white;
 }

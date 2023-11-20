@@ -1,8 +1,10 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .title {
 	font-weight: 500;
 	font-size: 24px;
+	line-height: 30px;
 
 	margin-bottom: 20px;
 }
@@ -12,17 +14,40 @@
 
 	display: flex;
 	gap: 24px;
+
+	@include tablet_small {
+		flex-direction: column;
+	}
 }
 
 .alert {
 	margin: 60px 0 48px;
 	padding: 32px;
+
+	@include tablet_small {
+		padding: 20px;
+	}
+
+	@include tablet {
+		margin: 0 0 24px;
+	}
 }
 
 .grid {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	gap: 40px;
+
+	@include desktop_base {
+		display: flex;
+		flex-direction: column-reverse;
+
+		margin-top: 24px;
+	}
+
+	@include tablet {
+		gap: 20px;
+	}
 }
 
 .confirmAddressModal {
@@ -32,6 +57,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
+	border-radius: 7px;
 
 	padding: 40px;
 	background: $white;
@@ -80,14 +107,26 @@
 		line-height: 24px;
 		color: $white;
 		margin-bottom: 32px;
+
+		@include mobile {
+			font-size: 16px;
+			line-height: 21px;
+		}
 	}
 }
 
 .communityTitle {
 	font-size: 24px;
+	line-height: 30px;
 	font-weight: 500;
 	margin-bottom: 20px;
 	color: $white;
+
+	@include mobile {
+		font-size: 18px;
+		line-height: 24px;
+		font-weight: 500;
+	}
 }
 
 .communityBlock {
@@ -99,4 +138,12 @@
 .blockTitle {
 	margin-bottom: 40px;
 	color: $page-title-color;
+}
+
+.accordion {
+	background: $white;
+
+	& > header {
+		background: $white;
+	}
 }

@@ -1,4 +1,5 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .item {
 	padding: 24px;
@@ -37,6 +38,11 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 40px;
+
+		@include tablet {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
 	}
 }
 
@@ -84,4 +90,8 @@
 
 	display: flex;
 	justify-content: center;
+
+	@include tablet {
+		margin-bottom: 40px;
+	}
 }

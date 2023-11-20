@@ -69,7 +69,10 @@ export default function Home({
 			<Container>
 				<div className={styles.mainBlock}>
 					<div className={styles.content}>
-						<h1 className={styles.title}>Общественные обсуждения</h1>
+						<h1 className={styles.title}>
+							Портал общественных обсуждений градостроительных проектов
+							Республики Башкортостан
+						</h1>
 						<p className={styles.text}>
 							Сервис, с помощью которого жители города могут ознакомиться с
 							градостроительными проектами, задать вопросы архитекторам и
@@ -101,10 +104,11 @@ export default function Home({
 			</Container>
 
 			<HowThisWorks />
-			<WhoCanParticipate />
+			<WhoCanParticipate whoInProject={whoInProject} />
 			<MostPopularProjects items={mostViewed || []} />
 			<AboutService />
 			<QNA questionsAndAnswers={questionsAndAnswers} />
+
 			<Feedback />
 		</>
 	)

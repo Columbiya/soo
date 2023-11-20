@@ -1,4 +1,5 @@
 import '@/assets/index.scss'
+import 'swiper/css'
 import { MainLayout, ScrollUpButton } from '@/components'
 import { useScrollTop } from '@/hooks'
 import NextProgress from 'next-progress'

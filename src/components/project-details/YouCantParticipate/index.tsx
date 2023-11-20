@@ -41,8 +41,8 @@ export const YouCantParticipate = () => {
 				onClose={onClose}
 			>
 				<div className={cl.confirmAddressModal}>
-					<h3 id="modal-title">title</h3>
-					<div>123</div>
+					<h3 id="modal-title">Подтверждение адреса</h3>
+					<div>(ПОКА ОТСУТСТВУЕТ)</div>
 				</div>
 			</Modal>
 		</>

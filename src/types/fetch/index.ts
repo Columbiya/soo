@@ -12,7 +12,7 @@ export type MainMostViewedProjects = {
 	data: ProjectItem[]
 }
 
-type WhoInProjectItem = {
+export type WhoInProjectItem = {
 	id: EntityId
 	title: string
 	manual: string
