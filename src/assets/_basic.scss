@@ -1,0 +1,85 @@
+body {
+	height: 100%;
+
+	& > div {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+}
+#root {
+	height: 100%;
+}
+
+//text configs
+h1 {
+	font-size: $h1-desktop-fz;
+	line-height: $h1-desktop-lh;
+}
+h2 {
+	font-size: $h2-desktop-fz;
+	line-height: $h2-desktop-lh;
+}
+h3 {
+	font-size: $h3-desktop-fz;
+	line-height: $h3-desktop-lh;
+}
+h4 {
+	font-size: $h4-desktop-fz;
+	line-height: $h4-desktop-lh;
+}
+a {
+	font-size: $link-secondary-fz;
+	line-height: $link-primary-lh;
+}
+p {
+	color: $link-gray;
+	font-size: $text-secondary-fz;
+	line-height: $text-primary-lh;
+}
+span {
+	font-size: $text-secondary-fz;
+	line-height: $text-primary-lh;
+}
+input {
+	font-size: $input-primary-fz;
+}
+
+//scroll styles
+html {
+	scrollbar-width: thin;
+	scrollbar-color: $blue-primary transparent;
+}
+html::-webkit-scrollbar-track {
+	background-color: $blue-primary;
+	border: none;
+	border-radius: $default-border-radius;
+}
+::-webkit-scrollbar {
+	width: 3px;
+	height: 3px;
+	background: $white;
+	border: none;
+	border-radius: 1px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: $blue-primary;
+	border: none;
+	border-radius: $default-border-radius;
+}
+
+.main {
+	padding-top: 180px;
+	background-color: $blue-secondary;
+	flex: 1;
+}
+
+.plain-select {
+	* {
+		&:focus {
+			outline: none !important;
+		}
+
+		border: none !important;
+	}
+}

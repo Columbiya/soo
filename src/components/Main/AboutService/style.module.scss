@@ -1,0 +1,41 @@
+@import '@/assets/breakpoints';
+
+.about {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+
+	@include tablet {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
+.image {
+	position: relative;
+
+	img {
+		width: 100%;
+
+		@include tablet {
+			width: 100%;
+		}
+	}
+}
+
+.text {
+	height: 375px;
+
+	p {
+		font-size: 18px;
+		line-height: 135%; /* 24.3px */
+
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+}
+
+.firstText {
+	margin-top: 24px;
+}

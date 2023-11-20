@@ -1,0 +1,56 @@
+@import '@/assets/variables';
+@import '@/assets/breakpoints';
+
+.item {
+	display: flex;
+	align-items: center;
+	height: 90px;
+	background: $white;
+	border-radius: 4px;
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 90px;
+		height: 90px;
+
+		color: $text-blue;
+		text-align: center;
+		font-size: 48px;
+		font-weight: 700;
+		line-height: 145%; /* 69.6px */
+		text-transform: uppercase;
+
+		background-color: $blue-secondary;
+	}
+
+	.text {
+		flex: 1;
+		padding: 28px;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 135%;
+
+		p,
+		a {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 135%;
+
+			@include tablet_small {
+				font-size: 16px;
+				line-height: 21px;
+				padding: 12px;
+				padding: 0;
+			}
+		}
+
+		@include tablet_small {
+			font-size: 16px;
+			line-height: 21px;
+			padding: 12px;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+@import '@/assets/variables';
+
+.search {
+	width: 100%;
+	display: flex;
+
+	& > * {
+		margin: 0 !important;
+	}
+
+	& > *:nth-child(2) {
+		flex: 1;
+	}
+}
+
+.input {
+	flex: 1;
+}
+
+.stages {
+	display: flex;
+	gap: 12px;
+}
+
+.stageToggle {
+	display: block;
+	margin: 24px 0;
+
+	border-radius: 20px;
+	border: 1px solid #999999;
+	padding: 4px 10px;
+
+	cursor: pointer;
+
+	font-size: 16px;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&.active {
+		background: $blue-primary;
+		border: 1px solid $blue-primary;
+		color: $white;
+	}
+}
+
+.typeFilters {
+	display: flex;
+	justify-content: space-between;
+}

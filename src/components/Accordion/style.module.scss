@@ -1,0 +1,51 @@
+@import '@/assets/variables';
+
+.content {
+	overflow: hidden;
+	padding: 0 32px;
+
+	transition: height 0.5s ease;
+}
+
+.item {
+	background: $blue-secondary;
+
+	transition: padding-bottom 0.5s ease;
+
+	&:not(:last-child) {
+		margin-bottom: 24px;
+	}
+
+	&.open {
+		padding-bottom: 24px;
+	}
+
+	&:not(.open) .header {
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
+
+.header {
+	background: $blue-secondary;
+	padding: 24px 32px;
+
+	position: relative;
+
+	cursor: pointer;
+}
+
+.postfix {
+	position: absolute;
+	right: 32px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5;
+
+	transition: transform 0.5s ease;
+
+	&.open {
+		transform: translateY(-50%) rotate(45deg);
+	}
+}

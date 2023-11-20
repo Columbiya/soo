@@ -1,0 +1,13 @@
+@import '@/assets/variables';
+
+.label {
+	font-size: 14px;
+	padding: 4px 10px;
+	color: $blue-primary;
+	border: 1px solid $blue-primary;
+	border-radius: 20px;
+
+	margin: 12px 12px 24px 0;
+
+	display: inline-block;
+}

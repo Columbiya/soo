@@ -1,0 +1,12 @@
+@import '@/assets/breakpoints';
+
+.title {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 125%; /* 45px */
+	text-transform: uppercase;
+
+	@include mobile {
+		font-size: 24px;
+	}
+}

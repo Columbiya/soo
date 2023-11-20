@@ -1,0 +1,66 @@
+@import '@/assets/variables';
+
+.mainBlock {
+	display: grid;
+	height: 100vh;
+	width: 100%;
+	align-items: center;
+	gap: 20px;
+
+	position: relative;
+}
+
+.title {
+	font-size: 68px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 125%; /* 85px */
+	text-transform: uppercase;
+
+	margin-bottom: 24px;
+}
+
+.content {
+	max-width: 650px;
+}
+
+.main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.text {
+	color: var(--gray-6-o, #666);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 135%;
+}
+
+.achievements {
+	display: flex;
+	justify-content: space-between;
+
+	margin-top: 60px;
+
+	span {
+		color: $text-blue;
+		font-size: 36px;
+		font-weight: 800;
+		line-height: 125%;
+	}
+}
+
+.video {
+	position: absolute;
+	right: -25px;
+	top: 50%;
+	transform: translate(0, -50%);
+
+	width: 769px;
+}
