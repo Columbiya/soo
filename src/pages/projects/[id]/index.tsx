@@ -7,6 +7,8 @@ import Head from 'next/head'
 import { ProjectDetails as ProjectDetailsComponent } from '@/components/project-details'
 import { MainContentResponseType, QuestionsAndAnswersItem } from '@/types/fetch'
 
+import cl from '../page.module.scss'
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	try {
 		const { id } = context.params as { id: string }
@@ -59,7 +61,7 @@ export default function Projects({
 			<Head>
 				<title>{projectParsed.name}</title>
 			</Head>
-			<Container>
+			<Container className={cl.titleContainer}>
 				<PageTitle>{projectParsed.name}</PageTitle>
 			</Container>
 

@@ -7,6 +7,7 @@ import { classNames } from '@/helpers'
 type InputProps = Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'onChange'> & {
 	label?: string
 	onChange: (val: string) => void
+	error?: boolean
 }
 
 export const Textarea: FC<InputProps> = ({
@@ -14,6 +15,7 @@ export const Textarea: FC<InputProps> = ({
 	value,
 	required,
 	label,
+	error,
 	...props
 }) => {
 	return (
@@ -27,9 +29,11 @@ export const Textarea: FC<InputProps> = ({
 			</span>
 			<textarea
 				{...props}
-				required={required}
 				onChange={(e) => onChange(e.target.value)}
 				value={value}
+				className={classNames({
+					[cl.errored]: !!error
+				})}
 			/>
 		</label>
 	)

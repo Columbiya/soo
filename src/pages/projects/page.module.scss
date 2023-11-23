@@ -14,9 +14,14 @@
 }
 
 .projectsContainer {
+	padding-top: 70px;
 	background: url('../../assets/images/background.svg') left top no-repeat;
 
 	@include tablet {
 		background: none;
 	}
+}
+
+.titleContainer {
+	padding-top: 70px;
 }

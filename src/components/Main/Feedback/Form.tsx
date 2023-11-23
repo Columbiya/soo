@@ -1,5 +1,5 @@
-import { Button, DragAndDrop, Input, Textarea } from '@/components'
-import { required } from '@/helpers/validation'
+import { Button, DragAndDrop, FormControl, Input, Textarea } from '@/components'
+import { isEmail, required } from '@/helpers/validation'
 import { useForm } from '@/hooks'
 import { ButtonSize, ButtonType, Constants } from '@/types'
 
@@ -17,7 +17,7 @@ export const Form = () => {
 	const { errors, handleSubmit, onChange, state, reset } =
 		useForm<FeedbackFormValues>(
 			{ email: '', file: undefined, text: '' },
-			{ email: required, file: null, text: null }
+			{ email: [required, isEmail], file: null, text: required }
 		)
 
 	const sendForm = async () => {
@@ -41,23 +41,30 @@ export const Form = () => {
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e, onSubmit)} className={cl.container}>
-			<Input
-				onChange={onChange('email')}
-				name="email"
-				value={state.email}
-				required
-				label="Укажите свою электронную почту"
-				placeholder="Email для ответа"
-			/>
+			<FormControl error={errors.email}>
+				<Input
+					onChange={onChange('email')}
+					name="email"
+					value={state.email}
+					required
+					error={!!errors.email}
+					label="Укажите свою электронную почту"
+					placeholder="Email для ответа"
+				/>
+			</FormControl>
 
-			<Textarea
-				onChange={onChange('text')}
-				name="text"
-				value={state.text}
-				label="Подробно опишите проблему"
-				placeholder="Сообщение"
-				className={cl.textarea}
-			/>
+			<FormControl error={errors.text}>
+				<Textarea
+					onChange={onChange('text')}
+					name="text"
+					value={state.text}
+					label="Подробно опишите проблему"
+					placeholder="Сообщение"
+					className={cl.textarea}
+					required
+					error={!!errors.text}
+				/>
+			</FormControl>
 
 			<DragAndDrop
 				name="image"
@@ -68,7 +75,7 @@ export const Form = () => {
 			<div className={cl.form}>
 				<p>
 					*Передавая информацию порталу,{' '}
-					<Link href="/politics">
+					<Link href="/politics" className={cl.link}>
 						Вы принимаете условия политики защиты персональной информации
 					</Link>
 				</p>

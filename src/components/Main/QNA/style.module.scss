@@ -2,17 +2,26 @@
 @import '@/assets/breakpoints';
 
 .active {
-	color: $blue-primary;
+	color: $blue-border;
 }
 
 .active > span {
-	color: $blue-primary;
+	color: $blue-border;
+
+	&:hover {
+		opacity: 0.8;
+		color: $blue-border !important;
+	}
 }
 
 .tab {
 	display: block;
 	padding: 12px 20px;
 	color: $gray-secondary;
+
+	&:hover {
+		color: $alert-text-color;
+	}
 }
 
 .qna {

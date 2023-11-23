@@ -36,6 +36,7 @@ export default function Header() {
 								<Button
 									buttonSize={ButtonSize.Default}
 									buttonType={ButtonType.Blue}
+									href="/login"
 								>
 									Войти
 								</Button>

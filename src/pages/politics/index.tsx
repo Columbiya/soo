@@ -43,7 +43,9 @@ export default function Politics({ politics }: { politics: string }) {
 				<title>Политика конфиденциальности</title>
 			</Head>
 			<Container>
-				<PageTitle>{politicsParsed.title}</PageTitle>
+				<div className={cl.title}>
+					<PageTitle>{politicsParsed.title}</PageTitle>
+				</div>
 
 				<div
 					dangerouslySetInnerHTML={{ __html: politicsParsed.text }}

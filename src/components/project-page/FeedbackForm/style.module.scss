@@ -34,3 +34,21 @@
 		margin-bottom: 20px;
 	}
 }
+
+.formContainer {
+	& > div {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+}
+
+.link {
+	color: $blue-primary;
+
+	transition: color 0.5s ease;
+
+	&:hover {
+		color: $green-primary;
+	}
+}

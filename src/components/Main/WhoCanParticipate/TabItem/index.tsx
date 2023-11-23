@@ -46,7 +46,10 @@ export const TabItem: FC<TabItemProps> = ({
 			{manual && (
 				<Alert type={AlertTypes.INFO} className={cl.alert}>
 					<strong>
-						<Link href="/login">Авторизуйтесь</Link> на портале через госуслуги
+						<Link href="/login" className={cl.link}>
+							Авторизуйтесь
+						</Link>{' '}
+						на портале через госуслуги
 					</strong>
 					<p>
 						После авторизации вам станет доступен раздел «Мои адреса»,

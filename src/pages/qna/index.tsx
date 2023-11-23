@@ -26,7 +26,9 @@ export default function QnaPage({ questionsAndAnswers }: QnaProps) {
 				<title>Вопросы и ответы</title>
 			</Head>
 
-			<QNA questionsAndAnswers={questionsAndAnswers} className={cl.qna} />
+			<div className={cl.qnaContainer}>
+				<QNA questionsAndAnswers={questionsAndAnswers} className={cl.qna} />
+			</div>
 		</>
 	)
 }

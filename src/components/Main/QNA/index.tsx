@@ -35,8 +35,6 @@ export const QNA: FC<QnaProps> = ({ questionsAndAnswers, className }) => {
 		[questionsAndAnswers]
 	)
 
-	console.log({ pathname })
-
 	return (
 		<section
 			className={classNames(cl.qna, className, {

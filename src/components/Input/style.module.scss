@@ -29,10 +29,10 @@
 		&:focus {
 			box-shadow: 0 0 10px $blue-primary;
 		}
-	}
 
-	&:not(:last-child) {
-		margin-bottom: 20px;
+		&.errored {
+			border-color: $red;
+		}
 	}
 }
 

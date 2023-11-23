@@ -33,7 +33,7 @@
 		opacity: 0.6;
 	}
 	&Dragover {
-		border: 1px solid $gray-primary;
+		background-color: $tabs-active;
 		opacity: 0.6;
 	}
 }
@@ -83,10 +83,10 @@
 		cursor: pointer;
 	}
 	&:hover {
-		border: 2px solid $blue-primary;
+		background: $blue-secondary;
 	}
 	&Dragover {
-		border: 2px solid $blue-primary;
+		background: $blue-secondary;
 	}
 	&:hover:has(input:disabled) {
 		border: 2px dashed $blue-primary;
@@ -96,6 +96,7 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	z-index: 5;
 	transform: translate(-50%, -50%);
 	display: flex;
 	color: $blue-primary;

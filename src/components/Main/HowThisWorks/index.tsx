@@ -8,8 +8,10 @@ const items: HowThisWorksItem[] = [
 	{
 		children: (
 			<p>
-				<Link href="/sign-up">Зарегистрируйтесь</Link> на портале и заполните
-				свой профиль
+				<Link href="/sign-up" className={cl.signUp}>
+					Зарегистрируйтесь
+				</Link>{' '}
+				на портале и заполните свой профиль
 			</p>
 		)
 	},

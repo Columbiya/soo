@@ -1,0 +1,10 @@
+@import '@/assets/variables';
+
+.formControl {
+}
+
+.error {
+	display: block;
+	margin-top: 12px;
+	color: $red;
+}

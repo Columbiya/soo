@@ -24,8 +24,6 @@ export const Tabs: FC<TabsProps> = ({
 	const [currentTabId, setCurrentTabId] = useState(items[0]?.id)
 	const [mouseOverId, setMouseOverId] = useState<string | null>(null)
 
-	console.log({ currentTabId })
-
 	if (items.length === 0) return null
 
 	return (

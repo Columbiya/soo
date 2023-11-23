@@ -44,8 +44,12 @@
 
 	font-size: 16px;
 
+	transition: all 0.5s ease;
+
 	&:hover {
-		opacity: 0.8;
+		background: $blue-primary;
+		border: 1px solid $blue-primary;
+		color: $white;
 	}
 
 	&.active {

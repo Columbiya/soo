@@ -1,6 +1,6 @@
-import { useFetch, useForm } from '@/hooks'
-import { required } from '@/helpers/validation'
-import { Button, DragAndDrop, Input, Textarea } from '@/components'
+import { useForm } from '@/hooks'
+import { isEmail, required } from '@/helpers/validation'
+import { Button, DragAndDrop, FormControl, Input, Textarea } from '@/components'
 import { ButtonSize, ButtonType, Constants } from '@/types'
 import { toast } from 'react-toastify'
 
@@ -22,7 +22,7 @@ export const FeedbackForm = () => {
 				text: ''
 			},
 			{
-				email: required,
+				email: [required, isEmail],
 				file: null,
 				text: required
 			}
@@ -47,24 +47,30 @@ export const FeedbackForm = () => {
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e, sendForm)} className={cl.form}>
-			<div>
+			<div className={cl.formContainer}>
 				<h2>Задать вопрос</h2>
-				<Input
-					placeholder="Email для ответа"
-					onChange={onChange('email')}
-					value={state.email}
-					label="Укажите свою почту"
-					required
-				/>
+				<FormControl error={errors.email}>
+					<Input
+						placeholder="Email для ответа"
+						onChange={onChange('email')}
+						value={state.email}
+						label="Укажите свою почту"
+						error={!!errors.email}
+						required
+					/>
+				</FormControl>
 
-				<Textarea
-					placeholder="Сообщение"
-					onChange={onChange('text')}
-					value={state.text}
-					label="Подробно опишите проблему"
-					required
-					className={cl.textarea}
-				/>
+				<FormControl error={errors.text}>
+					<Textarea
+						placeholder="Сообщение"
+						onChange={onChange('text')}
+						value={state.text}
+						label="Подробно опишите проблему"
+						required
+						className={cl.textarea}
+						error={!!errors.text}
+					/>
+				</FormControl>
 
 				<DragAndDrop
 					name="image"
@@ -82,7 +88,9 @@ export const FeedbackForm = () => {
 
 				<p className={cl.ps}>
 					*Передавая информацию порталу, Вы принимаете условия{' '}
-					<Link href="/politics">политики защиты персональной информации</Link>
+					<Link href="/politics" className={cl.link}>
+						политики защиты персональной информации
+					</Link>
 				</p>
 			</div>
 		</form>

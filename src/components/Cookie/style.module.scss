@@ -1,0 +1,47 @@
+@import '@/assets/variables';
+@import '@/assets/breakpoints';
+
+.cookie {
+	position: fixed;
+	bottom: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 500;
+
+	padding: 24px 32px;
+
+	max-width: 1400px;
+	width: 100%;
+	background: $white;
+
+	font-size: 18px;
+	line-height: 24px;
+	color: $black-tertiary;
+
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	gap: 48px;
+
+	a {
+		font-size: 18px;
+		line-height: 24px;
+		color: $blue-primary;
+	}
+
+	&.hidden {
+		display: none;
+		z-index: -100;
+	}
+
+	@include tablet {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include tablet_small {
+		grid-template-columns: 1fr;
+
+		font-size: 16px;
+		line-height: 22px;
+		gap: 24px;
+	}
+}

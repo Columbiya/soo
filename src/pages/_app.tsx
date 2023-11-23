@@ -4,6 +4,9 @@ import { MainLayout, ScrollUpButton } from '@/components'
 import { useScrollTop } from '@/hooks'
 import NextProgress from 'next-progress'
 import type { AppProps } from 'next/app'
+import dynamic from 'next/dynamic'
+
+const Cookie = dynamic(() => import('@/components/Cookie'), { ssr: false })
 
 export default function App({ Component, pageProps }: AppProps) {
 	const scrollTop = useScrollTop()
@@ -15,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				options={{ showSpinner: false, color: '#3461c1' }}
 			/>
 			<ScrollUpButton scrollTop={scrollTop} />
+			<Cookie />
 			<MainLayout>
 				<Component {...pageProps} />
 			</MainLayout>

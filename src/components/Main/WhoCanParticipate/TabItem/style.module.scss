@@ -58,3 +58,13 @@
 
 	margin-bottom: 20px;
 }
+
+.link {
+	color: $blue-primary;
+
+	transition: color 0.5s ease;
+
+	&:hover {
+		color: $green-primary;
+	}
+}
