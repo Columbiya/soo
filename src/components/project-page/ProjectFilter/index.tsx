@@ -139,7 +139,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 
 				<div className={cl.typeFilters}>
 					<div>
-						<span>
+						<div className={cl.typeFilterItem}>
 							Вид документа:
 							<Select
 								onChange={(e) => onChange('documentType')(e.target.value)}
@@ -153,8 +153,8 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 										</MenuItem>
 									))}
 							</Select>
-						</span>
-						<span>
+						</div>
+						<div className={cl.typeFilterItem}>
 							Период:
 							<Select
 								onChange={(e) => onChange('period')(e.target.value)}
@@ -168,10 +168,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 										</MenuItem>
 									))}
 							</Select>
-						</span>
+						</div>
 					</div>
 					<div>
-						<span>
+						<div className={cl.typeFilterItem}>
 							Выводить по:
 							<Select
 								value={state.limit.toString()}
@@ -184,7 +184,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 									</MenuItem>
 								))}
 							</Select>
-						</span>
+						</div>
 						<ShowAsToggle
 							list={showAsList}
 							onToggle={onChangeAsList}

@@ -1,10 +1,12 @@
 @import '@/assets/breakpoints';
+@import '@/assets/variables';
 
 .whoCanParticipate {
 	margin: 90px auto;
 }
 
 .tab {
+	display: block;
 	width: 100%;
 	padding: 24px;
 	font-size: 20px;
@@ -15,7 +17,9 @@
 
 	position: relative;
 
-	p {
+	span {
+		display: block;
+		color: $black-secondary;
 		max-width: 240px;
 		font-size: 20px;
 		font-weight: 500;
