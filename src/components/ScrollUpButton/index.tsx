@@ -4,12 +4,12 @@ import { ButtonKind, ButtonSize, ButtonType } from '@/types'
 
 import cl from './style.module.scss'
 import { classNames } from '@/helpers'
+import { useScrollTop } from '@/hooks'
 
-type ScrollUpButtonProps = {
-	scrollTop: number
-}
+type ScrollUpButtonProps = {}
 
-export const ScrollUpButton: FC<ScrollUpButtonProps> = ({ scrollTop }) => {
+export const ScrollUpButton: FC<ScrollUpButtonProps> = () => {
+	const scrollTop = useScrollTop()
 	const onScrollTop = () => window.scrollTo({ behavior: 'smooth', top: 0 })
 
 	return (

@@ -3,6 +3,10 @@
 
 .whoCanParticipate {
 	margin: 90px auto;
+
+	@include mobile {
+		margin: 40px auto;
+	}
 }
 
 .tab {
@@ -27,6 +31,10 @@
 
 		position: relative;
 		z-index: 5;
+
+		@include tablet {
+			font-size: 18px;
+		}
 	}
 
 	&.active {
@@ -53,4 +61,8 @@
 
 .content {
 	margin-top: 0;
+
+	@include tablet {
+		margin-top: 20px;
+	}
 }

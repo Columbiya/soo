@@ -34,8 +34,13 @@ a {
 }
 p {
 	color: $link-gray;
-	font-size: $text-secondary-fz;
-	line-height: $text-primary-lh;
+	font-size: 18px;
+	line-height: 24px;
+
+	@media screen and (max-width: 550px) {
+		font-size: 16px;
+		line-height: 21px;
+	}
 }
 span {
 	font-size: $text-secondary-fz;
@@ -43,6 +48,10 @@ span {
 }
 input {
 	font-size: $input-primary-fz;
+}
+
+main {
+	overflow-x: hidden;
 }
 
 //scroll styles

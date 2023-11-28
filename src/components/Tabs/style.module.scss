@@ -9,6 +9,8 @@
 	.tab {
 		width: 100%;
 
+		position: relative;
+
 		cursor: pointer;
 
 		transition: background-color 0.5s ease;
@@ -18,16 +20,42 @@
 		}
 
 		@include tablet {
-			display: block;
 			text-align: center;
 		}
+	}
+
+	span {
+		position: relative;
+		z-index: 5;
+	}
+}
+
+.bgImage {
+	position: absolute;
+
+	z-index: 1;
+
+	&.left {
+		top: 0;
+		left: 0;
+		height: 100%;
+	}
+
+	&.right {
+		top: 0;
+		right: 0;
+		height: 100%;
 	}
 }
 
 .slide {
 	display: grid;
+	height: 100%;
 	place-items: center;
 	align-items: center;
+	text-align: center;
+
+	background: $blue-secondary;
 }
 
 .content {

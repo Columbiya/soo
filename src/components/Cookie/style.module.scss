@@ -8,6 +8,8 @@
 	transform: translateX(-50%);
 	z-index: 500;
 
+	border-radius: 12px;
+
 	padding: 24px 32px;
 
 	max-width: 1400px;
@@ -26,6 +28,12 @@
 		font-size: 18px;
 		line-height: 24px;
 		color: $blue-primary;
+
+		transition: color 0.5s ease;
+
+		&:hover {
+			color: $blue-primary-hover;
+		}
 	}
 
 	&.hidden {
@@ -35,10 +43,9 @@
 
 	@include tablet {
 		grid-template-columns: 1fr 1fr;
-	}
-
-	@include tablet_small {
 		grid-template-columns: 1fr;
+
+		border-radius: 0;
 
 		font-size: 16px;
 		line-height: 22px;

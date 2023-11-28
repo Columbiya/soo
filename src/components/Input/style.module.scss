@@ -20,18 +20,28 @@
 		border-radius: 5px;
 		font-size: 16px;
 
-		transition: box-shadow 0.5s ease;
+		transition:
+			box-shadow 0.5s ease,
+			border-color 0.5s ease;
 
 		&::placeholder {
 			color: $input-placeholder;
 		}
 
 		&:focus {
-			box-shadow: 0 0 10px $blue-primary;
+			border-color: $input-border-hover;
 		}
 
 		&.errored {
 			border-color: $red;
+		}
+
+		&.success {
+			border-color: #c4e2c4;
+		}
+
+		&:hover {
+			border-color: $input-border-hover;
 		}
 	}
 }

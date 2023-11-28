@@ -57,6 +57,7 @@ export const FeedbackForm = () => {
 						label="Укажите свою почту"
 						error={!!errors.email}
 						required
+						success={!errors.email && !!state.email}
 					/>
 				</FormControl>
 
@@ -69,6 +70,7 @@ export const FeedbackForm = () => {
 						required
 						className={cl.textarea}
 						error={!!errors.text}
+						success={!errors.text && !!state.text}
 					/>
 				</FormControl>
 
@@ -88,7 +90,7 @@ export const FeedbackForm = () => {
 
 				<p className={cl.ps}>
 					*Передавая информацию порталу, Вы принимаете условия{' '}
-					<Link href="/politics" className={cl.link}>
+					<Link href="/politics" target="_blank" className={cl.link}>
 						политики защиты персональной информации
 					</Link>
 				</p>

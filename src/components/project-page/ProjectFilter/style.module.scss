@@ -12,6 +12,10 @@
 	& > *:nth-child(2) {
 		flex: 1;
 	}
+
+	input {
+		height: 58px;
+	}
 }
 
 .input {

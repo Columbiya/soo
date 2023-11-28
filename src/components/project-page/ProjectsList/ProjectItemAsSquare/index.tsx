@@ -37,7 +37,7 @@ export const ProjectItemAsSquare: FC<ProjectItemAsSquareProps> = ({
 
 			<footer className={cl.footer}>
 				<div className={cl.footerContentContainer}>
-					<h3>{name}</h3>
+					<h2>{name}</h2>
 					<div className={cl.labels}>
 						<Label>Комментариев: {commentsCount}</Label>
 						<Label>Участников: {participantsCount}</Label>

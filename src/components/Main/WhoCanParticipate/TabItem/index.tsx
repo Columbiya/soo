@@ -60,7 +60,11 @@ export const TabItem: FC<TabItemProps> = ({
 
 			<h5 className={cl.subtitle}>Подтвердите свое право на собственность</h5>
 
-			<Accordion items={accordionItems} className={cl.accordion} />
+			<Accordion
+				items={accordionItems}
+				className={cl.accordion}
+				key={Date.now()}
+			/>
 		</section>
 	)
 }

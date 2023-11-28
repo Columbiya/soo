@@ -32,11 +32,11 @@
 	line-height: 37px;
 	text-transform: uppercase;
 	color: #383838;
+	font-weight: 500;
 
 	margin-bottom: 40px;
 
 	@include tablet {
-		font-weight: 500;
 		font-size: 18px;
 		line-height: 24px;
 		margin-bottom: 20px;

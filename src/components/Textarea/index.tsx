@@ -8,6 +8,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'onChange'> & {
 	label?: string
 	onChange: (val: string) => void
 	error?: boolean
+	success?: boolean
 }
 
 export const Textarea: FC<InputProps> = ({

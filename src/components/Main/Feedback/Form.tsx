@@ -50,6 +50,7 @@ export const Form = () => {
 					error={!!errors.email}
 					label="Укажите свою электронную почту"
 					placeholder="Email для ответа"
+					success={!errors.email && !!state.email}
 				/>
 			</FormControl>
 
@@ -63,6 +64,7 @@ export const Form = () => {
 					className={cl.textarea}
 					required
 					error={!!errors.text}
+					success={!errors.text && !!state.text}
 				/>
 			</FormControl>
 
@@ -75,7 +77,7 @@ export const Form = () => {
 			<div className={cl.form}>
 				<p>
 					*Передавая информацию порталу,{' '}
-					<Link href="/politics" className={cl.link}>
+					<Link href="/politics" target="_blank" className={cl.link}>
 						Вы принимаете условия политики защиты персональной информации
 					</Link>
 				</p>

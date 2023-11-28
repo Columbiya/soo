@@ -34,6 +34,8 @@
 		font-weight: 400;
 		font-size: 18px;
 
+		transition: opacity 0.5s ease;
+
 		&:hover {
 			opacity: 0.8;
 		}
@@ -97,7 +99,7 @@
 	justify-content: flex-start;
 
 	@include tablet {
-		display: none;
+		align-items: flex-start;
 	}
 }
 .content {
@@ -106,18 +108,14 @@
 		font-size: 16px;
 		line-height: 22px;
 
+		transition: opacity 0.5s ease;
+
 		&:hover {
 			opacity: 0.8;
 		}
 
 		&:not(:last-child) {
 			margin-bottom: 12px;
-		}
-	}
-
-	@include tablet {
-		a {
-			display: none;
 		}
 	}
 }

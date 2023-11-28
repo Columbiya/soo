@@ -34,7 +34,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 
 		setHeight(ref.current.clientHeight)
 
-		ref.current.style.height = '0'
+		ref.current.style.height = 'auto'
 	}, [ref])
 
 	useEffect(() => {
@@ -70,7 +70,12 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 				/>
 			</header>
 
-			<div ref={ref} className={classNames(cl.content, className)}>
+			<div
+				ref={ref}
+				className={classNames(cl.content, className, {
+					[cl.open]: isOpen
+				})}
+			>
 				{children}
 			</div>
 		</div>

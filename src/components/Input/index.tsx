@@ -8,6 +8,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
 	label?: string
 	onChange: (val: string) => void
 	error?: boolean
+	success?: boolean
 }
 
 export const Input: FC<InputProps> = ({
@@ -16,6 +17,7 @@ export const Input: FC<InputProps> = ({
 	required,
 	label,
 	error,
+	success = false,
 	...props
 }) => {
 	return (
@@ -34,7 +36,8 @@ export const Input: FC<InputProps> = ({
 				onChange={(e) => onChange(e.target.value)}
 				value={value}
 				className={classNames({
-					[cl.errored]: !!error
+					[cl.errored]: !!error,
+					[cl.success]: success
 				})}
 			/>
 		</label>

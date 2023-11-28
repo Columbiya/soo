@@ -18,9 +18,14 @@
 	display: block;
 	padding: 12px 20px;
 	color: $gray-secondary;
+	font-size: 18px;
 
 	&:hover {
 		color: $alert-text-color;
+	}
+
+	@include tablet {
+		font-size: 16px;
 	}
 }
 

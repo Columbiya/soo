@@ -79,9 +79,9 @@ export default function Home({
 							разработчикам проектов и оставить свои предложения и замечания
 						</p>
 						<div className={styles.achievements}>
-							{achievments.map((a) => (
+							{header.list.map((a) => (
 								<div className={styles.achievement} key={a.text}>
-									<span>{a.amount}+</span>
+									<span>{a.value}</span>
 									<p className={styles.text}>{a.text}</p>
 								</div>
 							))}

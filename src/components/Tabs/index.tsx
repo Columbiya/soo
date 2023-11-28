@@ -70,6 +70,16 @@ export const Tabs: FC<TabsProps> = ({
 										(currentTabId === item.id || mouseOverId === item.id)
 								})}
 							>
+								<img
+									src="/images/main/tab-slider-left-image.svg"
+									alt=""
+									className={classNames(cl.bgImage, cl.left)}
+								/>
+								<img
+									src="/images/main/tab-slider-right-image.svg"
+									alt=""
+									className={classNames(cl.bgImage, cl.right)}
+								/>
 								<span>{item.tab}</span>
 							</div>
 						</SwiperSlide>
