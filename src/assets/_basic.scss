@@ -97,6 +97,11 @@ html::-webkit-scrollbar-track {
 	}
 }
 
+.plain-select
+	.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+	padding: 0 32px 0 12px;
+}
+
 .whiteBackground {
 	background-color: $white;
 }
