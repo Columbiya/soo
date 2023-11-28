@@ -1,4 +1,5 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .search {
 	width: 100%;
@@ -11,15 +12,28 @@
 	& > *:nth-child(2) {
 		flex: 1;
 	}
+
+	input {
+		height: 58px;
+	}
 }
 
 .input {
 	flex: 1;
+
+	border-left: none !important;
+
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
 }
 
 .stages {
 	display: flex;
 	gap: 12px;
+
+	@include tablet {
+		flex-wrap: wrap;
+	}
 }
 
 .stageToggle {
@@ -34,8 +48,12 @@
 
 	font-size: 16px;
 
+	transition: all 0.5s ease;
+
 	&:hover {
-		opacity: 0.8;
+		background: $blue-primary;
+		border: 1px solid $blue-primary;
+		color: $white;
 	}
 
 	&.active {
@@ -43,9 +61,59 @@
 		border: 1px solid $blue-primary;
 		color: $white;
 	}
+
+	@include tablet {
+		margin: 0;
+
+		margin-top: 12px;
+	}
 }
 
 .typeFilters {
 	display: flex;
 	justify-content: space-between;
+
+	@include tablet {
+		flex-direction: column;
+	}
+}
+
+.typeFilterItem {
+	display: inline-block;
+}
+
+.localitySelect {
+	border: 1px solid #ccc !important;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-right: none !important;
+
+	position: relative;
+
+	& > div {
+		background-color: $white;
+		border: none !important;
+	}
+
+	fieldset {
+		border: none !important;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		transform: translateY(-50%);
+		background-color: #cce2ff;
+		width: 1px;
+		height: 70%;
+	}
+}
+
+.showAs {
+	@include tablet {
+		display: none;
+	}
 }

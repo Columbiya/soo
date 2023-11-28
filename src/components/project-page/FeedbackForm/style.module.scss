@@ -21,8 +21,35 @@
 .ps {
 	margin-top: 20px;
 	text-align: center;
+	font-size: 14px;
 }
 
 .textarea {
 	min-height: 159px;
+}
+
+.form {
+	h2 {
+		font-size: 24px;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+}
+
+.formContainer {
+	& > div {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+}
+
+.link {
+	color: $blue-primary;
+
+	transition: color 0.5s ease;
+
+	&:hover {
+		color: $green-primary;
+	}
 }

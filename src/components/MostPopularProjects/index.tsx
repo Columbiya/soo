@@ -1,13 +1,16 @@
+'use client'
+
 import { FC } from 'react'
 
 import { ProjectItem } from '@/types/fetch/projects'
 
 import cl from './style.module.scss'
 import { BlockTitle, Button, Container } from '@/components'
-import Link from 'next/link'
 import { ButtonKind, ButtonSize, ButtonType } from '@/types'
 import { ProjectItemAsSquare } from '../project-page/ProjectsList/ProjectItemAsSquare'
 import { useRouter } from 'next/router'
+import { useMatchMedia } from '@/hooks'
+import { classNames } from '@/helpers'
 
 type MostPopularProjectsProps = {
 	items: ProjectItem[]
@@ -42,11 +45,23 @@ export const MostPopularProjects: FC<MostPopularProjectsProps> = ({
 					className={cl.image}
 				/>
 
-				<div className={cl.list}>
-					{items.map((item) => (
-						<ProjectItemAsSquare {...item} key={item.id} />
-					))}
+				<div className={cl.scrollContainer}>
+					<div className={cl.list}>
+						{items.map((item) => (
+							<ProjectItemAsSquare {...item} key={item.id} />
+						))}
+					</div>
 				</div>
+
+				<Button
+					buttonKind={ButtonKind.SlightRounded}
+					buttonSize={ButtonSize.Default}
+					buttonType={ButtonType.White}
+					className={classNames(cl.btn, cl.mobile)}
+					onClick={() => router.push('/projects')}
+				>
+					Смотреть все проекты
+				</Button>
 			</Container>
 		</section>
 	)

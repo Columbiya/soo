@@ -36,6 +36,7 @@ export default function Header() {
 								<Button
 									buttonSize={ButtonSize.Default}
 									buttonType={ButtonType.Blue}
+									href="/login"
 								>
 									Войти
 								</Button>
@@ -43,17 +44,21 @@ export default function Header() {
 						)}
 
 						{isTablet && (
-							<Button onClick={() => setMenuOpen((prev) => !prev)}>
-								<img src="/images/common/burger-icon.svg" alt="" />
+							<Button
+								onClick={() => setMenuOpen((prev) => !prev)}
+								className={classNames(cl.burger, {
+									[cl.open]: menuOpen
+								})}
+							>
+								<span />
+								<span />
 							</Button>
 						)}
 					</div>
 				</Container>
 			</header>
 			<div className={styles.className}>
-				{menuOpen && isTablet && (
-					<MobileMenu open={menuOpen} setOpen={setMenuOpen} />
-				)}
+				<MobileMenu open={menuOpen} setOpen={setMenuOpen} />
 			</div>
 		</>
 	)

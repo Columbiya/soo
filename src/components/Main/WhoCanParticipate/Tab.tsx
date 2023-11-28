@@ -9,9 +9,9 @@ type TabProps = {
 
 export const Tab: FC<TabProps> = ({ image, text }) => {
 	return (
-		<div className={cl.tab}>
-			<p>{text}</p>
+		<span className={cl.tab}>
+			<span>{text}</span>
 			<Image src={image} alt="" width={350} height={158} />
-		</div>
+		</span>
 	)
 }

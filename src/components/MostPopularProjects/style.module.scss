@@ -7,6 +7,10 @@
 	background-color: $blue-primary;
 
 	margin-bottom: 90px;
+
+	@include mobile {
+		margin-bottom: 40px;
+	}
 }
 
 .white {
@@ -20,6 +24,21 @@
 		color: $blue-primary;
 		font-size: 18px;
 		font-weight: 500;
+	}
+
+	@include mobile {
+		display: none;
+		width: 100%;
+
+		margin-top: 24px;
+	}
+
+	&.mobile {
+		display: none;
+
+		@include mobile {
+			display: block;
+		}
 	}
 }
 
@@ -45,5 +64,29 @@
 
 	& > div {
 		box-shadow: 1px 1px 3px #ccc;
+	}
+
+	@include desktop {
+		grid-template-columns: 50% 50% 50%;
+		margin-bottom: 12px;
+	}
+
+	@include tablet_small {
+		grid-template-columns: 100% 100% 100%;
+		margin-bottom: 12px;
+	}
+}
+
+.scrollContainer {
+	@include desktop {
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			background-color: rgba($white, 0.6);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $white;
+		}
 	}
 }

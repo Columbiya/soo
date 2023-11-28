@@ -14,6 +14,8 @@
 }
 
 .feedBackContainer {
+	position: relative;
+	z-index: 5;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 40px;
@@ -38,13 +40,20 @@
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
+
+	p {
+		font-size: 14px;
+	}
 }
 
 .feedback {
+	position: relative;
+	overflow: hidden;
+
 	background-color: $blue-secondary;
 	padding: 90px 0 60px;
 
-	@include mobile {
+	@include tablet {
 		padding: 40px 0 24px;
 	}
 }
@@ -52,6 +61,12 @@
 .container {
 	background: $white;
 	padding: 32px 36px;
+
+	& > div {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
 }
 
 .alert {
@@ -60,4 +75,19 @@
 
 .textarea {
 	min-height: 160px;
+}
+
+.backgroundImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.link {
+	color: $blue-primary;
+
+	&:hover {
+		color: $green-primary;
+	}
 }

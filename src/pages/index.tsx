@@ -69,16 +69,19 @@ export default function Home({
 			<Container>
 				<div className={styles.mainBlock}>
 					<div className={styles.content}>
-						<h1 className={styles.title}>Общественные обсуждения</h1>
+						<h1 className={styles.title}>
+							Портал общественных обсуждений градостроительных проектов
+							Республики Башкортостан
+						</h1>
 						<p className={styles.text}>
 							Сервис, с помощью которого жители города могут ознакомиться с
 							градостроительными проектами, задать вопросы архитекторам и
 							разработчикам проектов и оставить свои предложения и замечания
 						</p>
 						<div className={styles.achievements}>
-							{achievments.map((a) => (
+							{header.list.map((a) => (
 								<div className={styles.achievement} key={a.text}>
-									<span>{a.amount}+</span>
+									<span>{a.value}</span>
 									<p className={styles.text}>{a.text}</p>
 								</div>
 							))}
@@ -92,8 +95,8 @@ export default function Home({
 						loop
 						controls={false}
 					>
-						Sorry, your browser doesn't support embedded videos, but don't
-						worry, you can
+						Sorry, your browser doesn&apos;t support embedded videos, but
+						don&apos;t worry, you can
 						<a href="/main-video.mp4">download it</a>
 						and watch it with your favorite video player!
 					</video>
@@ -101,10 +104,11 @@ export default function Home({
 			</Container>
 
 			<HowThisWorks />
-			<WhoCanParticipate />
+			<WhoCanParticipate whoInProject={whoInProject} />
 			<MostPopularProjects items={mostViewed || []} />
 			<AboutService />
 			<QNA questionsAndAnswers={questionsAndAnswers} />
+
 			<Feedback />
 		</>
 	)

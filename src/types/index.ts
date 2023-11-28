@@ -48,3 +48,7 @@ export enum Months {
 	NOVEMBER = 'ноября',
 	DECEMBER = 'декабря'
 }
+
+export const enum STORAGE_KEYS {
+	COOKIE_POPUP = 'COOKIE_POPUP'
+}

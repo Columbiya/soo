@@ -5,6 +5,9 @@ import { ProjectDetails } from '@/types/fetch/projects'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { ProjectDetails as ProjectDetailsComponent } from '@/components/project-details'
+import { MainContentResponseType, QuestionsAndAnswersItem } from '@/types/fetch'
+
+import cl from '../page.module.scss'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	try {
@@ -14,9 +17,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 			method: 'GET'
 		}).then((res) => res.json())
 
+		const content = (await fetch(`${Constants.BASE_URL}/content/main`).then(
+			(res) => res.json()
+		)) as MainContentResponseType
+
 		return {
 			props: {
-				project: JSON.stringify(project)
+				project: JSON.stringify(project),
+				questionsAndAnswers: JSON.stringify(content.questionsAndAnswers)
 			}
 		}
 	} catch (e) {
@@ -24,16 +32,28 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 		return {
 			props: {
-				project: {}
+				project: {},
+				questionsAndAnswers: []
 			}
 		}
 	}
 }
 
-export default function Projects({ project }: { project: string }) {
+export default function Projects({
+	project,
+	questionsAndAnswers
+}: {
+	project: string
+	questionsAndAnswers: string
+}) {
 	const projectParsed = useMemo<ProjectDetails>(
 		() => JSON.parse(project),
 		[project]
+	)
+
+	const qna = useMemo<QuestionsAndAnswersItem[]>(
+		() => JSON.parse(questionsAndAnswers),
+		[questionsAndAnswers]
 	)
 
 	return (
@@ -41,11 +61,11 @@ export default function Projects({ project }: { project: string }) {
 			<Head>
 				<title>{projectParsed.name}</title>
 			</Head>
-			<Container>
+			<Container className={cl.titleContainer}>
 				<PageTitle>{projectParsed.name}</PageTitle>
-
-				<ProjectDetailsComponent {...projectParsed} />
 			</Container>
+
+			<ProjectDetailsComponent {...projectParsed} qna={qna} />
 		</>
 	)
 }

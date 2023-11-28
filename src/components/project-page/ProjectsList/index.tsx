@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useContext, ReactNode } from 'react'
+import { ChangeEvent, FC, useContext, ReactNode, useMemo } from 'react'
 import { ProjectFilterParams, ProjectItem } from '@/types/fetch/projects'
 import { useRouter } from 'next/router'
 
@@ -39,17 +39,17 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 		})
 	}
 
-	let itemsList: ReactNode = []
-
-	if (showAsList) {
-		itemsList = items.map((item) => (
-			<ProjectItemAsListItem key={item.id} {...item} />
-		))
-	} else {
-		itemsList = items.map((item) => (
-			<ProjectItemAsSquare key={item.id} {...item} />
-		))
-	}
+	const itemsList = useMemo(() => {
+		if (showAsList) {
+			return items.map((item) => (
+				<ProjectItemAsListItem key={item.id} {...item} />
+			))
+		} else {
+			return items.map((item) => (
+				<ProjectItemAsSquare key={item.id} {...item} />
+			))
+		}
+	}, [items, showAsList])
 
 	return (
 		<>
@@ -62,12 +62,16 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 				{itemsList}
 			</section>
 			<div className={cl.pagination}>
-				<Pagination
-					count={pagesCount}
-					page={page}
-					onChange={onPageChange}
-					color="primary"
-				/>
+				{totalCount > 0 && (
+					<Pagination
+						count={pagesCount}
+						page={page}
+						onChange={onPageChange}
+						color="primary"
+					/>
+				)}
+
+				{totalCount === 0 && <h3>Проектов с заданным фильтром не нашлось</h3>}
 			</div>
 		</>
 	)

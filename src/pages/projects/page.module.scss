@@ -1,8 +1,27 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .listContainer {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	gap: 40px;
 	margin-top: 60px;
+
+	@include tablet {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
+}
+
+.projectsContainer {
+	padding-top: 70px;
+	background: url('../../assets/images/background.svg') left top no-repeat;
+
+	@include tablet {
+		background: none;
+	}
+}
+
+.titleContainer {
+	padding-top: 70px;
 }

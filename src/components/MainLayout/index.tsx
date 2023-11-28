@@ -26,7 +26,8 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 			<main
 				className={classNames(
 					{
-						main: pathname !== '/'
+						main: pathname !== '/',
+						whiteBackground: pathname === '/qna'
 					},
 					styles.className
 				)}

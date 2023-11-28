@@ -1,4 +1,6 @@
-import { FC, useContext } from 'react'
+// @ts-nocheck
+
+import { FC, useContext, useEffect } from 'react'
 
 import {
 	ProjectFilterParams,
@@ -82,6 +84,14 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 		}
 	}
 
+	useEffect(() => {
+		if (!filters) return
+
+		onChange('period')(filters.periods[0] || '')
+		onChange('locality')(filters.localities[0] || '')
+		onChange('documentType')(filters.documentTypes[0] || '')
+	}, [filters])
+
 	return (
 		<div className={cl.filter}>
 			<form onSubmit={(e) => handleSubmit(e, onSubmit)}>
@@ -89,6 +99,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 					<Select
 						value={state.locality}
 						onChange={(e) => onChange('locality')(e.target.value)}
+						className={cl.localitySelect}
 					>
 						{filters &&
 							filters.localities.map((l) => (
@@ -119,6 +130,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 										[cl.active]: s === state.stage
 									})}
 									onClick={() => onStageChange(s)}
+									key={s}
 								>
 									{s}
 								</span>
@@ -127,7 +139,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 
 				<div className={cl.typeFilters}>
 					<div>
-						<span>
+						<div className={cl.typeFilterItem}>
 							Вид документа:
 							<Select
 								onChange={(e) => onChange('documentType')(e.target.value)}
@@ -136,14 +148,30 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							>
 								{filters &&
 									filters.documentTypes.map((t) => (
-										<MenuItem value={t}>{t}</MenuItem>
+										<MenuItem value={t} key={t}>
+											{t}
+										</MenuItem>
 									))}
 							</Select>
-						</span>
-						<span>Период: </span>
+						</div>
+						<div className={cl.typeFilterItem}>
+							Период:
+							<Select
+								onChange={(e) => onChange('period')(e.target.value)}
+								value={state.period}
+								className="plain-select"
+							>
+								{filters &&
+									filters.periods.map((p) => (
+										<MenuItem key={p} value={p}>
+											{p}
+										</MenuItem>
+									))}
+							</Select>
+						</div>
 					</div>
 					<div>
-						<span>
+						<div className={cl.typeFilterItem}>
 							Выводить по:
 							<Select
 								value={state.limit.toString()}
@@ -156,8 +184,12 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 									</MenuItem>
 								))}
 							</Select>
-						</span>
-						<ShowAsToggle list={showAsList} onToggle={onChangeAsList} />
+						</div>
+						<ShowAsToggle
+							list={showAsList}
+							onToggle={onChangeAsList}
+							className={cl.showAs}
+						/>
 					</div>
 				</div>
 			</form>

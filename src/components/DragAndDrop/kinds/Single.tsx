@@ -82,8 +82,6 @@ const DragAndDropSingle: FC<DragAndDropSingleProps> = ({
 				return
 			}
 
-			console.log(file, 'file')
-
 			// setFileUrl(URL.createObjectURL(file))
 			onChange(file)
 		},
@@ -120,10 +118,10 @@ const DragAndDropSingle: FC<DragAndDropSingleProps> = ({
 				{/* <span className={classNames({ [cl.FullSize]: !!fileUrl })}>
 					{fileUrl}
 				</span> */}
-			</div>
-			<div className={cl.fileDragSingleOptions}>
-				<span>{fileUrl || 'Прикрепить изображение'}</span>
-				<img src="/images/common/paper-clip-icon.svg" alt="" width="18" />
+				<div className={cl.fileDragSingleOptions}>
+					<span>{fileUrl || 'Прикрепить изображение'}</span>
+					<img src="/images/common/paper-clip-icon.svg" alt="" width="18" />
+				</div>
 			</div>
 		</div>
 	)

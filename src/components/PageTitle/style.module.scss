@@ -1,8 +1,15 @@
 @import '@/assets/variables';
+@import '@/assets/breakpoints';
 
 .title {
 	color: $page-title-color;
 	font-weight: 600;
 	font-size: 48px;
+	line-height: 60px;
 	text-transform: uppercase;
+
+	@include desktop_base {
+		font-size: 28px;
+		line-height: 34px;
+	}
 }

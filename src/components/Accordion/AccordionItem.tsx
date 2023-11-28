@@ -15,6 +15,7 @@ import Image from 'next/image'
 type AccordionItemProps = AccordionItemType & {
 	isOpen: boolean
 	onOpen: Dispatch<SetStateAction<string>>
+	className?: string
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({
@@ -22,6 +23,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 	header,
 	id,
 	isOpen,
+	className,
 	onOpen
 }) => {
 	const ref = useRef<HTMLDivElement>(null)
@@ -32,7 +34,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 
 		setHeight(ref.current.clientHeight)
 
-		ref.current.style.height = '0'
+		ref.current.style.height = 'auto'
 	}, [ref])
 
 	useEffect(() => {
@@ -50,12 +52,12 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 
 	return (
 		<div
-			className={classNames(cl.item, {
+			className={classNames(cl.item, className, {
 				[cl.open]: isOpen
 			})}
 		>
 			<header onClick={() => onOpen(id)} className={cl.header}>
-				{header}
+				<span>{header}</span>
 
 				<Image
 					src="/images/common/accordion/open-image.svg"
@@ -68,7 +70,12 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 				/>
 			</header>
 
-			<div ref={ref} className={classNames(cl.content)}>
+			<div
+				ref={ref}
+				className={classNames(cl.content, className, {
+					[cl.open]: isOpen
+				})}
+			>
 				{children}
 			</div>
 		</div>
