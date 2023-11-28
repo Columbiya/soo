@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import CountUp from 'react-countup'
 import { Container, MostPopularProjects } from '@/components'
 import styles from './page.module.scss'
 import {
@@ -81,7 +82,9 @@ export default function Home({
 						<div className={styles.achievements}>
 							{header.list.map((a) => (
 								<div className={styles.achievement} key={a.text}>
-									<span>{a.value}</span>
+									<span>
+										<CountUp end={parseInt(a.value)} duration={5} />+
+									</span>
 									<p className={styles.text}>{a.text}</p>
 								</div>
 							))}
@@ -107,7 +110,7 @@ export default function Home({
 			<WhoCanParticipate whoInProject={whoInProject} />
 			<MostPopularProjects items={mostViewed || []} />
 			<AboutService />
-			<QNA questionsAndAnswers={questionsAndAnswers} />
+			<QNA questionsAndAnswers={questionsAndAnswers} className={styles.qna} />
 
 			<Feedback />
 		</>

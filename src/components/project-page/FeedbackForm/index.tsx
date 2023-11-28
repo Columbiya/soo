@@ -39,6 +39,7 @@ export const FeedbackForm = () => {
 			reset()
 		} catch (e) {
 			console.log(e)
+
 			if (e instanceof Error) {
 				toast(e.message, { type: 'error' })
 			}

@@ -1,3 +1,5 @@
+@import '@/assets/breakpoints';
+
 @keyframes slideIn {
 	from {
 		transform: translate(0, -50%);
@@ -36,5 +38,9 @@
 
 	&.shown {
 		animation: slideIn 0.5s ease forwards;
+	}
+
+	@include desktop_base {
+		display: none;
 	}
 }
