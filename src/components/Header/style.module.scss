@@ -1,0 +1,48 @@
+@import '@/assets/variables';
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5000;
+
+	padding: 27px 12px;
+	box-shadow: 0px 4px 24px 0px #daeaf4;
+}
+
+.headerInner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-weight: 900;
+	font-size: 23px;
+	line-height: 30px;
+	text-transform: uppercase;
+	max-width: 180px;
+	color: $black-primary;
+
+	span {
+		font-weight: 900;
+		font-size: 23px;
+		line-height: 30px;
+		text-transform: uppercase;
+		color: $blue-primary;
+	}
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 48px;
+
+	a {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 24px;
+		color: $link-gray;
+	}
+}

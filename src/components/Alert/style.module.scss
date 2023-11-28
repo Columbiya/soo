@@ -1,0 +1,16 @@
+@import '@/assets/variables';
+
+.alert {
+	padding: 16px 24px;
+	border-left: 4px solid $link-gray;
+	font-size: 18px;
+	background: $white;
+}
+
+.info {
+	border-left-color: $blue-border;
+}
+
+.danger {
+	border-left-color: $red;
+}

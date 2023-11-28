@@ -1,0 +1,40 @@
+@keyframes slideIn {
+	from {
+		transform: translate(0, -50%);
+		opacity: 0;
+		z-index: -5;
+	}
+
+	to {
+		transform: translate(0, 0);
+		opacity: 1;
+		z-index: 15000;
+	}
+}
+
+.scrollUpButton {
+	position: fixed;
+	top: 80%;
+	right: 75px;
+	z-index: 5;
+
+	transform: translate(0, -50%);
+	opacity: 0;
+
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+
+	padding: 0;
+
+	display: grid;
+	place-items: center;
+
+	transition:
+		transform 0.5s ease,
+		opacity 0.5s ease;
+
+	&.shown {
+		animation: slideIn 0.5s ease forwards;
+	}
+}

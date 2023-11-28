@@ -1,0 +1,49 @@
+@import '@/assets/variables';
+@import '@/assets/breakpoints';
+
+.mostViewedProjects {
+	position: relative;
+	padding: 90px 0 100px;
+	background-color: $blue-primary;
+
+	margin-bottom: 90px;
+}
+
+.white {
+	color: $white;
+}
+
+.btn {
+	color: $blue-primary;
+
+	a {
+		color: $blue-primary;
+		font-size: 18px;
+		font-weight: 500;
+	}
+}
+
+.image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 48px;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+
+	& > div {
+		box-shadow: 1px 1px 3px #ccc;
+	}
+}

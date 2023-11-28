@@ -1,0 +1,23 @@
+@import '@/assets/variables';
+
+.active {
+	color: $blue-primary;
+}
+
+.active > span {
+	color: $blue-primary;
+}
+
+.tab {
+	display: block;
+	padding: 12px 20px;
+	color: $gray-secondary;
+}
+
+.qna {
+	margin: 100px 0;
+}
+
+.tabs {
+	margin-top: 40px;
+}

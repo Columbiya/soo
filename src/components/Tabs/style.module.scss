@@ -1,0 +1,23 @@
+@import '@/assets/variables';
+
+.tabs {
+	width: 100%;
+
+	display: flex;
+
+	.tab {
+		width: 100%;
+
+		cursor: pointer;
+
+		transition: background-color 0.5s ease;
+
+		&.active {
+			background: $tabs-active;
+		}
+	}
+}
+
+.content {
+	margin-top: 24px;
+}
