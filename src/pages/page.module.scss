@@ -10,7 +10,7 @@
 
 	position: relative;
 
-	@media screen and (max-height: 700px) {
+	@media screen and (max-height: 750px) {
 		padding-top: 130px;
 		min-height: 100vh;
 		height: 100%;
@@ -96,5 +96,13 @@
 
 	@include desktop_base {
 		display: none;
+	}
+}
+
+.qna {
+	padding: 0;
+
+	@include mobile {
+		padding: 40px 0;
 	}
 }

@@ -76,4 +76,8 @@
 	&.open {
 		transform: translateY(-50%) rotate(45deg);
 	}
+
+	@include mobile {
+		right: 12px;
+	}
 }

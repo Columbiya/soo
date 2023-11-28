@@ -17,6 +17,7 @@ export const Textarea: FC<InputProps> = ({
 	required,
 	label,
 	error,
+	success,
 	...props
 }) => {
 	return (
@@ -33,7 +34,8 @@ export const Textarea: FC<InputProps> = ({
 				onChange={(e) => onChange(e.target.value)}
 				value={value}
 				className={classNames({
-					[cl.errored]: !!error
+					[cl.errored]: !!error,
+					[cl.success]: !!success
 				})}
 			/>
 		</label>
