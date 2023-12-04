@@ -98,11 +98,3 @@
 		display: none;
 	}
 }
-
-.qna {
-	padding: 0;
-
-	@include mobile {
-		padding: 40px 0;
-	}
-}
