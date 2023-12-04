@@ -113,23 +113,25 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 						<Community />
 					</div>
 					<aside>
-						<div className={cl.sidebar}>
-							<h4 className={cl.sidebarTitle}>Экспозиция</h4>
-							<span>Начало: {dateStart}</span>
-							<span>Окончание: {dateEnd}</span>
+						<div className={cl.sticky}>
+							<div className={cl.sidebar}>
+								<h4 className={cl.sidebarTitle}>Экспозиция</h4>
+								<span>Начало: {dateStart}</span>
+								<span>Окончание: {dateEnd}</span>
 
-							<h4 className={cl.sidebarTitle}>Границы проведения</h4>
-							<span>Кадастровый капитал</span>
-							{/* Уточнить */}
-							<span>{name.split(' ')}</span>
+								<h4 className={cl.sidebarTitle}>Границы проведения</h4>
+								<span>Кадастровый капитал</span>
+								{/* Уточнить */}
+								<span>{name.split(' ')}</span>
 
-							<img
-								src="/images/project/details/sidebar-image.svg"
-								alt=""
-								className={cl.sidebarImage}
-							/>
+								<img
+									src="/images/project/details/sidebar-image.svg"
+									alt=""
+									className={cl.sidebarImage}
+								/>
+							</div>
+							<FeedbackForm />
 						</div>
-						<FeedbackForm />
 					</aside>
 				</div>
 			</Container>

@@ -39,13 +39,19 @@ export const MobileMenu: FC<MobileMenuProps> = ({ open, setOpen }) => {
 					<Link href="/projects">Проекты</Link>
 				</div>
 				<div>
-					<Link href="/about">О сервисе</Link>
+					<Link href="/#about" onClick={() => setOpen(false)}>
+						О сервисе
+					</Link>
 				</div>
 				<div>
-					<Link href="/qna">Вопросы и ответы</Link>
+					<Link href="/#qna" onClick={() => setOpen(false)}>
+						Вопросы и ответы
+					</Link>
 				</div>
 				<div>
-					<Link href="/feedback">Обратная связь</Link>
+					<Link href="/#feedback" onClick={() => setOpen(false)}>
+						Обратная связь
+					</Link>
 				</div>
 			</div>
 
