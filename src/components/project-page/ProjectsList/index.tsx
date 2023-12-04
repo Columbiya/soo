@@ -84,7 +84,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 					/>
 				</div>
 			)}
-			{page < totalCount && (
+			{totalCount > 0 && totalCount > limit && (
 				<div className={cl.showMoreButton}>
 					<Button
 						buttonKind={ButtonKind.Rounded}
