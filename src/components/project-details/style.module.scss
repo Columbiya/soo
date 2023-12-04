@@ -133,6 +133,12 @@
 	padding: 24px;
 
 	background-color: $blue-primary;
+
+	margin-bottom: 24px;
+
+	@include mobile {
+		margin-bottom: 0;
+	}
 }
 
 .blockTitle {
