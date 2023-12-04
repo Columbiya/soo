@@ -40,6 +40,7 @@ export const QNA: FC<QnaProps> = ({ questionsAndAnswers, className }) => {
 			className={classNames(cl.qna, className, {
 				[cl.noPadding]: pathname === '/qna'
 			})}
+			id="qna"
 		>
 			<Container>
 				<BlockTitle>Вопросы и ответы</BlockTitle>

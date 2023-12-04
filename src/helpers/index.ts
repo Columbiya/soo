@@ -3,3 +3,5 @@ export { getAlertClassDependingOnType } from '@/helpers/getAlertClassDependingOn
 export { getUniqueId } from '@/helpers/getUniqueId'
 export { classNames } from '@/helpers/classNames'
 export { formatDate } from '@/helpers/formatDate'
+export { padStr } from '@/helpers/padStr'
+export { getFormData } from '@/helpers/getFormData'

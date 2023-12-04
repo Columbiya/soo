@@ -57,6 +57,10 @@
 			gap: 24px;
 		}
 	}
+
+	@include tablet {
+		margin: 20px 0;
+	}
 }
 
 .image {
@@ -122,6 +126,33 @@
 	justify-content: center;
 
 	@include tablet {
-		margin-bottom: 40px;
+		display: none;
 	}
+}
+
+.showMoreButton {
+	display: none;
+
+	.btn {
+		display: block;
+		width: 100%;
+	}
+
+	@include tablet {
+		display: block;
+	}
+}
+
+.notFound {
+	margin-top: 24px;
+
+	display: grid;
+	place-items: center;
+	flex: 1;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }

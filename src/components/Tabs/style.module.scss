@@ -1,6 +1,11 @@
 @import '@/assets/variables';
 @import '@/assets/breakpoints';
 
+.wrapper {
+	position: relative;
+	background: $blue-secondary;
+}
+
 .tabs {
 	width: 100%;
 
@@ -8,9 +13,8 @@
 
 	.tab {
 		width: 100%;
-
 		position: relative;
-
+		z-index: 500;
 		cursor: pointer;
 
 		transition: background-color 0.5s ease;
@@ -33,8 +37,6 @@
 .bgImage {
 	position: absolute;
 
-	z-index: 1;
-
 	&.left {
 		top: 0;
 		left: 0;
@@ -54,8 +56,6 @@
 	place-items: center;
 	align-items: center;
 	text-align: center;
-
-	background: $blue-secondary;
 }
 
 .content {

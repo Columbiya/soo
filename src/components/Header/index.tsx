@@ -28,9 +28,9 @@ export default function Header() {
 							<>
 								<nav className={cl.nav}>
 									<Link href="/projects">Проекты</Link>
-									<Link href="/about">О сервисе</Link>
-									<Link href="/qna">Вопросы и ответы</Link>
-									<Link href="/feedback">Обратная связь</Link>
+									<Link href="#about">О сервисе</Link>
+									<Link href="#qna">Вопросы и ответы</Link>
+									<Link href="#feedback">Обратная связь</Link>
 								</nav>
 
 								<Button

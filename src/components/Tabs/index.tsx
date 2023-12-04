@@ -57,6 +57,7 @@ export const Tabs: FC<TabsProps> = ({
 					onSlideChange={(swiper) =>
 						setCurrentTabId(items[swiper.activeIndex].id)
 					}
+					className={cl.wrapper}
 				>
 					{items.map((item) => (
 						<SwiperSlide key={item.id} className={cl.slide}>
@@ -70,20 +71,20 @@ export const Tabs: FC<TabsProps> = ({
 										(currentTabId === item.id || mouseOverId === item.id)
 								})}
 							>
-								<img
-									src="/images/main/tab-slider-left-image.svg"
-									alt=""
-									className={classNames(cl.bgImage, cl.left)}
-								/>
-								<img
-									src="/images/main/tab-slider-right-image.svg"
-									alt=""
-									className={classNames(cl.bgImage, cl.right)}
-								/>
 								<span>{item.tab}</span>
 							</div>
 						</SwiperSlide>
 					))}
+					<img
+						src="/images/main/tab-slider-left-image.svg"
+						alt=""
+						className={classNames(cl.bgImage, cl.left)}
+					/>
+					<img
+						src="/images/main/tab-slider-right-image.svg"
+						alt=""
+						className={classNames(cl.bgImage, cl.right)}
+					/>
 					<NavigationButtons />
 				</Swiper>
 			</div>

@@ -52,6 +52,7 @@ export interface DragAndDropSingleProps extends DragAndDropBaseProps {
 	file?: File
 	onChange: (file?: File | null) => void
 	files?: never
+	restrictFileLength?: number
 }
 
 export interface DragAndDropMultipleProps extends DragAndDropBaseProps {
@@ -65,6 +66,7 @@ interface DragAndDropAdditionalProps {
 	name: string
 	accept?: AcceptTypes[]
 	onDelete?: (removeTitleArray: string[]) => void
+	restrictFileLength?: number
 }
 export type DragAndDropProps = Omit<
 	DragAndDropMultipleProps | DragAndDropSingleProps,

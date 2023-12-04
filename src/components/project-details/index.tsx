@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react'
-import { Accordion, Alert, Button, Container } from '@/components'
+import { Accordion, Alert, Button, Container, Banner } from '@/components'
 import { AlertTypes } from '@/components/Alert/type'
 import { ProjectDetails as ProjectDetailsDataType } from '@/types/fetch/projects'
 import { ButtonKind, ButtonSize, ButtonType, Constants } from '@/types'

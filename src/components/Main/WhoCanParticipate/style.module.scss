@@ -11,7 +11,6 @@
 
 .tab {
 	display: grid;
-	place-items: center;
 	width: 100%;
 	padding: 24px;
 	font-size: 20px;
@@ -36,6 +35,10 @@
 		@include tablet {
 			font-size: 18px;
 		}
+	}
+
+	@include tablet {
+		place-items: center;
 	}
 
 	&.active {

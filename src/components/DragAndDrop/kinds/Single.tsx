@@ -10,7 +10,7 @@ import {
 	useState
 } from 'react'
 
-import { getUniqueId } from '@/helpers'
+import { getUniqueId, padStr } from '@/helpers'
 import {
 	clearFileInput,
 	getFileList,
@@ -34,6 +34,7 @@ const DragAndDropSingle: FC<DragAndDropSingleProps> = ({
 	id,
 	disabled,
 	file,
+	restrictFileLength,
 	...defaultProps
 }) => {
 	const loadingFileError = {
@@ -49,8 +50,12 @@ const DragAndDropSingle: FC<DragAndDropSingleProps> = ({
 	const [fileUrl, setFileUrl] = useState(file?.name)
 
 	useEffect(() => {
-		setFileUrl(file?.name)
-	}, [file])
+		if (restrictFileLength && file?.name) {
+			setFileUrl(padStr(file.name, restrictFileLength))
+		} else {
+			setFileUrl(file?.name)
+		}
+	}, [file, restrictFileLength])
 
 	const changeHandler = useCallback(
 		async (event: ChangeEvent<HTMLInputElement>) => {

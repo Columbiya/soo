@@ -6,6 +6,7 @@ import { ButtonSize, ButtonType, Constants } from '@/types'
 import cl from './style.module.scss'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
+import { getFormData } from '@/helpers'
 
 type FeedbackFormValues = {
 	email: string
@@ -22,9 +23,9 @@ export const Form = () => {
 
 	const sendForm = async () => {
 		try {
-			await fetch(`${Constants.BASE_URL}/form/questions`, {
+			await fetch(`${Constants.BASE_URL}/form/feedback`, {
 				method: 'POST',
-				body: JSON.stringify(state)
+				body: getFormData(state)
 			})
 
 			toast('Форма успешно отправлена', { type: 'success' })
@@ -72,6 +73,7 @@ export const Form = () => {
 				name="image"
 				onChange={onChange('file')}
 				file={state.file!}
+				restrictFileLength={25}
 			/>
 
 			<div className={cl.form}>

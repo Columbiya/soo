@@ -48,7 +48,6 @@
 
 .feedback {
 	position: relative;
-	overflow: hidden;
 
 	background-color: $blue-secondary;
 	padding: 90px 0 60px;
@@ -67,6 +66,10 @@
 			margin-bottom: 24px;
 		}
 	}
+
+	@include mobile {
+		padding: 16px;
+	}
 }
 
 .alert {
@@ -84,7 +87,7 @@
 	z-index: 1;
 
 	@include tablet {
-		display: none;
+		display: none !important;
 	}
 }
 

@@ -34,7 +34,8 @@
 
 	transition:
 		transform 0.5s ease,
-		opacity 0.5s ease;
+		opacity 0.5s ease,
+		background-color 0.5s ease;
 
 	&.shown {
 		animation: slideIn 0.5s ease forwards;

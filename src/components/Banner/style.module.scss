@@ -1,0 +1,53 @@
+@import '@/assets/variables';
+@import '@/assets/breakpoints';
+
+.banner {
+	position: relative;
+	z-index: 6;
+
+	padding: 40px;
+	background-color: $blue-primary;
+	margin: 45px 0 94px 0;
+
+	color: $white;
+
+	p {
+		color: $white;
+	}
+
+	@include tablet {
+		padding: 32px;
+		margin-bottom: 40px;
+	}
+}
+
+.bannerContent {
+	max-width: 65%;
+	width: 100%;
+
+	@include tablet {
+		max-width: 100%;
+	}
+}
+
+.button {
+	margin-top: 32px;
+}
+
+.bannerTitle {
+	font-size: 28px;
+	line-height: 38px;
+	font-weight: 400;
+
+	margin-bottom: 12px;
+}
+
+.bannerImage {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	@include tablet {
+		display: none;
+	}
+}

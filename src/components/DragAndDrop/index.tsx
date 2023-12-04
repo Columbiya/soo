@@ -13,6 +13,7 @@ export const DragAndDrop: FC<DragAndDropProps> = ({
 	id,
 	name,
 	file,
+	restrictFileLength,
 	disabled
 }) => {
 	// TODO Добавить зашитую валидацию
@@ -46,6 +47,7 @@ export const DragAndDrop: FC<DragAndDropProps> = ({
 				onDragEnter={dragEnterHandler}
 				onDragLeave={dragLeaveHandler}
 				disabled={disabled}
+				restrictFileLength={restrictFileLength}
 			/>
 		</>
 	)

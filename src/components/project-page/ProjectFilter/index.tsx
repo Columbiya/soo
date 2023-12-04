@@ -113,9 +113,12 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 						name="search"
 						value={state.search}
 						placeholder="Поиск проекта"
-						className={cl.input}
 					/>
-					<Button buttonSize={ButtonSize.Default} buttonType={ButtonType.Blue}>
+					<Button
+						buttonSize={ButtonSize.Default}
+						buttonType={ButtonType.Blue}
+						className={cl.searchButton}
+					>
 						Найти
 					</Button>
 				</div>
@@ -170,7 +173,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							</Select>
 						</div>
 					</div>
-					<div>
+					<div className={cl.showBy}>
 						<div className={cl.typeFilterItem}>
 							Выводить по:
 							<Select

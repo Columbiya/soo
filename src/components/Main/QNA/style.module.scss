@@ -2,28 +2,30 @@
 @import '@/assets/breakpoints';
 
 .active {
-	color: $blue-border;
+	color: $blue-border !important;
 }
 
 .active > span {
-	color: $blue-border;
+	color: $alert-text-color !important;
 
-	&:hover {
-		opacity: 0.8;
-		color: $blue-border !important;
+	& > span {
+		color: $alert-text-color;
+
+		transition: color 0.5s ease;
+
+		&:hover {
+			color: $alert-text-color !important;
+		}
 	}
 }
 
 .tab {
 	display: grid;
 	place-items: center;
-	width: 100%;
-	padding: 24px;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 135%;
-
-	height: 158px;
+	padding-bottom: 12px;
 
 	span {
 		display: block;
@@ -52,14 +54,19 @@
 		color: $alert-text-color;
 	}
 
+	margin-right: 20px;
+
 	@include tablet {
 		font-size: 16px;
+		padding: 24px;
+		height: 158px;
+		margin-right: 0;
 	}
 }
 
 .qna {
 	background: $white;
-	margin: 100px 0;
+	margin: 100px 0 0;
 	padding: 100px 0;
 
 	@include mobile {
@@ -75,4 +82,8 @@
 
 .tabs {
 	margin-top: 40px;
+
+	& > div > div {
+		width: auto !important;
+	}
 }

@@ -1,5 +1,6 @@
 body {
 	height: 100%;
+	scroll-behavior: smooth;
 
 	& > div {
 		min-height: 100vh;
@@ -7,6 +8,11 @@ body {
 		flex-direction: column;
 	}
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
 #root {
 	height: 100%;
 }
@@ -104,6 +110,18 @@ html::-webkit-scrollbar-track {
 
 .whiteBackground {
 	background-color: $white;
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root {
+	border: 1px solid #b3b3b3;
+
+	&:hover {
+		border-color: #1976d2;
+	}
+}
+
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+	border-color: #1976d2;
 }
 
 .css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {

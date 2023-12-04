@@ -6,7 +6,7 @@ import { BlockTitle, Container } from '@/components'
 export const AboutService = () => {
 	return (
 		<Container>
-			<div className={cl.about}>
+			<div className={cl.about} id="about">
 				<div className={cl.image}>
 					<img src="/images/main/about-service-image.svg" alt="" />
 				</div>
