@@ -134,7 +134,7 @@
 
 	background-color: $blue-primary;
 
-	margin-bottom: 24px;
+	margin-bottom: 48px;
 
 	@include mobile {
 		margin-bottom: 0;
@@ -158,5 +158,9 @@
 	position: sticky;
 	top: 15px;
 
-	margin-bottom: 24px;
+	margin-bottom: 48px;
+
+	@include mobile {
+		margin-bottom: 0;
+	}
 }

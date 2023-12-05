@@ -47,8 +47,6 @@ export const FeedbackForm = () => {
 		}
 	}
 
-	console.log({ state })
-
 	return (
 		<form onSubmit={(e) => handleSubmit(e, sendForm)} className={cl.form}>
 			<div className={cl.formContainer}>

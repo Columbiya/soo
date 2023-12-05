@@ -8,10 +8,10 @@ export const useScrollTop = () => {
 			setScrollTop(window.scrollY)
 		}
 
-		document.body.addEventListener('mousewheel', watchScrollTop)
+		document.body.addEventListener('wheel', watchScrollTop)
 
 		return () => {
-			document.body.removeEventListener('mousewheel', watchScrollTop)
+			document.body.removeEventListener('wheel', watchScrollTop)
 		}
 	}, [])
 
