@@ -17,11 +17,16 @@
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	gap: 24px;
+
+	@include tablet_small {
+		grid-template-columns: 1fr;
+	}
 }
 
 .imageContainer {
 	position: relative;
 	overflow: hidden;
+	min-height: 240px;
 
 	img {
 		transition: transform 0.5s ease;
@@ -29,6 +34,10 @@
 
 	&:hover img {
 		transform: scale(1.1);
+	}
+
+	@include tablet_small {
+		width: 100%;
 	}
 }
 
@@ -116,6 +125,14 @@
 		@include mobile {
 			font-size: 16px;
 		}
+	}
+}
+
+.listItemButton {
+	@include tablet_small {
+		width: 100%;
+		text-align: center;
+		margin-top: 24px;
 	}
 }
 

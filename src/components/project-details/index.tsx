@@ -122,7 +122,7 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 								<h4 className={cl.sidebarTitle}>Границы проведения</h4>
 								<span>Кадастровый капитал</span>
 								{/* Уточнить */}
-								<span>{name.split(' ')}</span>
+								<span>{name}</span>
 
 								<img
 									src="/images/project/details/sidebar-image.svg"

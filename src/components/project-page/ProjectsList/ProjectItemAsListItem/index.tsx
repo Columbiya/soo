@@ -40,6 +40,7 @@ export const ProjectItemAsListItem: FC<ProjectItemAsListItemProps> = (item) => {
 					buttonType={ButtonType.OutlinedBlue}
 					buttonKind={ButtonKind.SlightRounded}
 					href={`/projects/${item.id.toString()}`}
+					className={cl.listItemButton}
 				>
 					Изучить проект
 				</Button>

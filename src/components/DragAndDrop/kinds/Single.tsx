@@ -123,7 +123,10 @@ const DragAndDropSingle: FC<DragAndDropSingleProps> = ({
 				{/* <span className={classNames({ [cl.FullSize]: !!fileUrl })}>
 					{fileUrl}
 				</span> */}
-				<div className={cl.fileDragSingleOptions}>
+				<div
+					className={cl.fileDragSingleOptions}
+					onClick={() => fileInput.current?.click()}
+				>
 					<span>{fileUrl || 'Прикрепить изображение'}</span>
 					<img src="/images/common/paper-clip-icon.svg" alt="" width="18" />
 				</div>

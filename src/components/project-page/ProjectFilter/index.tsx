@@ -17,7 +17,7 @@ import { classNames } from '@/helpers'
 import { ShowAsToggle } from '..'
 import { ProjectsContext } from '@/contexts'
 
-const showEachItems = ['5', '10', '15', '20']
+const showEachItems = ['10', '20', '50']
 
 type ProjectFilterProps = {
 	onFiltersChange: (next: Partial<ProjectFilterParams>) => void

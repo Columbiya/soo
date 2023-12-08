@@ -8,7 +8,12 @@ export const AboutService = () => {
 		<Container>
 			<div className={cl.about} id="about">
 				<div className={cl.image}>
-					<img src="/images/main/about-service-image.svg" alt="" />
+					<video src="/about-service.mp4" autoPlay muted loop controls={false}>
+						Sorry, your browser doesn&apos;t support embedded videos, but
+						don&apos;t worry, you can
+						<a href="/about-service.mp4">download it</a>
+						and watch it with your favorite video player!
+					</video>
 				</div>
 
 				<div className={cl.text}>

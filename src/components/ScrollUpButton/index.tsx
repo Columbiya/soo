@@ -12,8 +12,6 @@ export const ScrollUpButton: FC<ScrollUpButtonProps> = () => {
 	const scrollTop = useScrollTop()
 	const onScrollTop = () => window.scrollTo({ behavior: 'smooth', top: 0 })
 
-	console.log({ scrollTop })
-
 	return (
 		<Button
 			onClick={onScrollTop}
