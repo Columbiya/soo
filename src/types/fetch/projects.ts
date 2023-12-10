@@ -1,5 +1,5 @@
 import { Pagination } from '.'
-import { EntityId } from '..'
+import { EntityId, ProjectStages } from '..'
 
 export type ProjectItem = {
 	id: EntityId
@@ -7,7 +7,7 @@ export type ProjectItem = {
 	description: string
 	image: string
 	dateEnd: string
-	projectStage: string
+	projectStage: ProjectStages
 	commentsCount: number
 	participantsCount: number
 }

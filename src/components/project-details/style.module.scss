@@ -169,3 +169,8 @@
 		margin-bottom: 0;
 	}
 }
+
+.feedback {
+	@include mobile {
+	}
+}

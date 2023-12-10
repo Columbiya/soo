@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 import { Alert, Banner, BlockTitle, Container, List } from '@/components'
 import { ListTypes } from '@/components/List/types'
@@ -7,6 +7,7 @@ import { AlertTypes } from '@/components/Alert/type'
 import { Form } from './Form'
 
 import cl from './style.module.scss'
+import { classNames } from '@/helpers'
 
 const items: ReactNode[] = [
 	'Опишите вопрос, связанный с участием в общественных обсуждениях.Укажите в тексте как можно больше информации:',
@@ -33,9 +34,13 @@ const BackgroundImage = () => (
 	</svg>
 )
 
-export const Feedback = () => {
+type FeedbackProps = {
+	className?: string
+}
+
+export const Feedback: FC<FeedbackProps> = ({ className }) => {
 	return (
-		<section className={cl.feedback} id="feedback">
+		<section className={classNames(cl.feedback, className)} id="feedback">
 			<BackgroundImage />
 			<Container className={cl.feedBackContainer}>
 				<div>

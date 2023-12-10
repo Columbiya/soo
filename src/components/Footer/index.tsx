@@ -35,7 +35,12 @@ export const Footer = () => {
 							/>
 							При поддержке Правительства Республики Башкортостан
 						</span>
-						<span>
+						<span className={cl.withImage}>
+							<img
+								src="/images/common/footer/rb.svg"
+								className={cl.rbIcon}
+								alt=""
+							/>
 							Министерство строительства и архитектуры Республики Башкортостан
 						</span>
 						<Link href="/feedback">Обратная связь</Link>

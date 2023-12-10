@@ -21,11 +21,11 @@
 
 .logo {
 	font-weight: 900;
-	font-size: 23px;
+	font-size: 23px !important;
 	line-height: 30px;
 	text-transform: uppercase;
 	max-width: 180px;
-	color: $black-primary;
+	color: $black-primary !important;
 
 	span {
 		font-weight: 900;
@@ -48,6 +48,10 @@
 		color: $link-gray;
 
 		transition: color 0.5s ease;
+
+		&:visited {
+			color: $link-gray;
+		}
 
 		&:hover {
 			color: $blue-primary;

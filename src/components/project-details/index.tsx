@@ -2,7 +2,13 @@ import { FC, useMemo } from 'react'
 import { Accordion, Alert, Button, Container, Banner } from '@/components'
 import { AlertTypes } from '@/components/Alert/type'
 import { ProjectDetails as ProjectDetailsDataType } from '@/types/fetch/projects'
-import { ButtonKind, ButtonSize, ButtonType, Constants } from '@/types'
+import {
+	ButtonKind,
+	ButtonSize,
+	ButtonType,
+	Constants,
+	ProjectStages
+} from '@/types'
 import { FeedbackForm } from '../project-page'
 import { Community } from './Community'
 import { AccordionItem as AccordionItemType } from '../Accordion/types'
@@ -34,41 +40,69 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 	projectStage,
 	qna
 }) => {
-	const accordionItems = useMemo<AccordionItemType[]>(
-		() => [
-			{
-				id: '1',
-				children: (
-					<div dangerouslySetInnerHTML={{ __html: projectMaterials }} />
-				),
-				header: 'Материалы проекта'
-			},
-			{
-				id: '2',
-				children: (
-					<div>
-						<Link href={`${Constants.UPLOAD_URL}${notification?.url}`} download>
-							{notification?.title}
-						</Link>
-					</div>
-				),
-				header: 'Оповещение'
-			},
-			{
+	const accordionItems = useMemo<AccordionItemType[]>(() => {
+		const items: AccordionItemType[] = []
+		const projectStageLower = projectStage.toLowerCase()
+
+		items.push({
+			id: '1',
+			children: <div dangerouslySetInnerHTML={{ __html: projectMaterials }} />,
+			header: 'Материалы проекта'
+		})
+
+		items.push({
+			id: '2',
+			children: (
+				<div>
+					<Link
+						href={`${Constants.UPLOAD_URL}${notification?.url}`}
+						download
+						target="_blank"
+					>
+						{notification?.title}
+					</Link>
+				</div>
+			),
+			header: 'Оповещение'
+		})
+
+		if (
+			projectStageLower === ProjectStages.EXPOSITION ||
+			projectStageLower === ProjectStages.PROTOCOL ||
+			projectStageLower === ProjectStages.END
+		) {
+			items.push({
 				id: '3',
 				children: (
 					<div dangerouslySetInnerHTML={{ __html: expositionMaterials }} />
 				),
 				header: 'Экспозиция'
-			},
-			{
+			})
+		}
+
+		if (
+			projectStageLower === ProjectStages.PROTOCOL ||
+			projectStageLower === ProjectStages.END
+		) {
+			items.push({
 				id: '4',
+				children: (
+					<div dangerouslySetInnerHTML={{ __html: expositionMaterials }} />
+				),
+				header: 'Протокол'
+			})
+		}
+
+		if (projectStageLower === ProjectStages.END) {
+			items.push({
+				id: '5',
 				children: <div>заключение</div>,
 				header: 'Заключение'
-			}
-		],
-		[notification, projectMaterials, expositionMaterials]
-	)
+			})
+		}
+
+		return items
+	}, [notification, projectMaterials, expositionMaterials])
 
 	return (
 		<>
@@ -102,6 +136,7 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 									buttonSize={ButtonSize.Default}
 									buttonType={ButtonType.OutlinedBlue}
 									buttonKind={ButtonKind.SlightRounded}
+									href="#feedback"
 								>
 									Техподдержка
 								</Button>
@@ -115,14 +150,14 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 					<aside>
 						<div className={cl.sticky}>
 							<div className={cl.sidebar}>
-								<h4 className={cl.sidebarTitle}>Экспозиция</h4>
+								<h4 className={cl.sidebarTitle}>{projectStage}</h4>
 								<span>Начало: {dateStart}</span>
 								<span>Окончание: {dateEnd}</span>
 
 								<h4 className={cl.sidebarTitle}>Границы проведения</h4>
 								<span>Кадастровый капитал</span>
 								{/* Уточнить */}
-								<span>{name}</span>
+								<span>{boundariesEvent}</span>
 
 								<img
 									src="/images/project/details/sidebar-image.svg"
