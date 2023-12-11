@@ -1,13 +1,13 @@
 import { FC } from 'react'
 
-import { BlockTitle, Button } from '@/components'
+import { BlockTitle, Button, Container } from '@/components'
 import { ButtonKind, ButtonSize, ButtonType } from '@/types'
 
 import cl from '../style.module.scss'
 
 export const Community: FC = () => {
 	return (
-		<>
+		<Container className={cl.communityContainer}>
 			<BlockTitle className={cl.blockTitle}>Обсуждение</BlockTitle>
 
 			<div className={cl.communityBlock}>
@@ -27,11 +27,12 @@ export const Community: FC = () => {
 						buttonKind={ButtonKind.SlightRounded}
 						buttonType={ButtonType.Green}
 						buttonSize={ButtonSize.Default}
+						className={cl.button}
 					>
 						Авторизоваться
 					</Button>
 				</div>
 			</div>
-		</>
+		</Container>
 	)
 }

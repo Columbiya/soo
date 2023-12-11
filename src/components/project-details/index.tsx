@@ -36,6 +36,8 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 	locality,
 	name,
 	notification,
+	conclusion,
+	protocol,
 	projectMaterials,
 	projectStage,
 	qna
@@ -87,7 +89,15 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 			items.push({
 				id: '4',
 				children: (
-					<div dangerouslySetInnerHTML={{ __html: expositionMaterials }} />
+					<div>
+						<Link
+							href={`${Constants.UPLOAD_URL}${protocol?.url}`}
+							download
+							target="_blank"
+						>
+							{protocol?.name}
+						</Link>
+					</div>
 				),
 				header: 'Протокол'
 			})
@@ -96,13 +106,29 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 		if (projectStageLower === ProjectStages.END) {
 			items.push({
 				id: '5',
-				children: <div>заключение</div>,
+				children: (
+					<div>
+						<Link
+							href={`${Constants.UPLOAD_URL}${conclusion?.url}`}
+							download
+							target="_blank"
+						>
+							{conclusion?.name}
+						</Link>
+					</div>
+				),
 				header: 'Заключение'
 			})
 		}
 
 		return items
-	}, [notification, projectMaterials, expositionMaterials])
+	}, [
+		notification,
+		projectMaterials,
+		expositionMaterials,
+		conclusion,
+		protocol
+	])
 
 	return (
 		<>
@@ -129,6 +155,7 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 									buttonSize={ButtonSize.Default}
 									buttonType={ButtonType.OutlinedBlue}
 									buttonKind={ButtonKind.SlightRounded}
+									href="/partners"
 								>
 									Как принять участие
 								</Button>
@@ -145,7 +172,6 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 
 						<YouCantParticipate />
 						<Accordion items={accordionItems} className={cl.accordion} />
-						<Community />
 					</div>
 					<aside>
 						<div className={cl.sticky}>
@@ -171,6 +197,7 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 				</div>
 			</Container>
 
+			<Community />
 			<QNA questionsAndAnswers={qna} />
 			<Feedback />
 		</>

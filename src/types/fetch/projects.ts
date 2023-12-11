@@ -41,17 +41,26 @@ export type ProjectDetails = {
 	boundariesEvent: string
 	locality: string
 	projectMaterials: string
-	expositionMaterials: string
+	protocol: Protocol
+	conclusion: Conclusion
 	notification: Notification
+	expositionMaterials: string
 	commentsCount: number
 	block: BlocksAppearance
 	comments: CommentItem[]
+}
+
+type EntityWithTitleAndUrl = {
+	name: string
+	url: string
 }
 
 type Notification = {
 	url: string
 	title: string
 }
+type Protocol = EntityWithTitleAndUrl
+type Conclusion = EntityWithTitleAndUrl
 
 type BlocksAppearance = {
 	auth: boolean
