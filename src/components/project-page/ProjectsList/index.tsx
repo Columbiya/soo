@@ -81,6 +81,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 						hidePrevButton={page === 1}
 						hideNextButton={page === pagesCount}
 						color="primary"
+						shape="rounded"
 					/>
 				</div>
 			)}
