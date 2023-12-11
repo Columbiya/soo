@@ -28,7 +28,8 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 	const { showAsList } = useContext(ProjectsContext)
 
 	const router = useRouter()
-	const limit = parseInt(router.query.limit as string) || 5
+	const limit = parseInt(router.query.limit as string) || 10
+	console.log({ limit })
 	const page = parseInt(router.query.page as string) || 1
 	const pagesCount = Math.ceil(totalCount / limit)
 
