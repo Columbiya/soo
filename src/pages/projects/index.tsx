@@ -13,6 +13,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	try {
 		const params = context.query as Partial<ProjectFilterParams>
 
+		params.limit = params.limit || '10'
+
 		const projects = await fetch(
 			`${Constants.BASE_URL}/project/get-list?${new URLSearchParams(params)}`,
 			{
@@ -41,6 +43,8 @@ export default function Projects({ projects }: { projects: string }) {
 		() => JSON.parse(projects),
 		[projects]
 	)
+
+	console.log({ projectsParsed })
 
 	return (
 		<>

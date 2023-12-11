@@ -178,7 +178,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							Выводить по:
 							<Select
 								value={state.limit.toString()}
-								onChange={(e) => onChange('limit')(e.target.value)}
+								onChange={(e) => {
+									onChange('limit')(e.target.value)
+									onFiltersChange({ ...state, limit: e.target.value })
+								}}
 								className="plain-select"
 							>
 								{showEachItems.map((each) => (
