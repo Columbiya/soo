@@ -78,7 +78,6 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 						count={pagesCount}
 						page={page}
 						onChange={onPageChange}
-						hideNextButton={page === pagesCount}
 						color="primary"
 						shape="rounded"
 					/>
