@@ -17,6 +17,10 @@
 	@include tablet {
 		margin-bottom: 24px;
 	}
+
+	@include mobile {
+		display: none;
+	}
 }
 
 .formButton {

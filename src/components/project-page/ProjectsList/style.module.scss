@@ -153,6 +153,7 @@
 	.btn {
 		display: block;
 		width: 100%;
+		margin-bottom: 40px;
 	}
 
 	@include tablet {
@@ -161,7 +162,7 @@
 }
 
 .notFound {
-	margin-top: 24px;
+	margin: 24px 0;
 
 	display: grid;
 	place-items: center;

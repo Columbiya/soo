@@ -52,3 +52,10 @@ export enum Months {
 export const enum STORAGE_KEYS {
 	COOKIE_POPUP = 'COOKIE_POPUP'
 }
+
+export const enum ProjectStages {
+	NOTIFICATION = 'оповещение',
+	EXPOSITION = 'экспозиция',
+	PROTOCOL = 'протокол',
+	END = 'заключение'
+}

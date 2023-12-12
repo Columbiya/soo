@@ -13,11 +13,19 @@
 
 	p {
 		color: $white;
+
+		@include mobile {
+			font-size: 16px;
+		}
 	}
 
 	@include tablet {
 		padding: 32px;
 		margin-bottom: 40px;
+	}
+
+	@include mobile {
+		padding: 20px;
 	}
 }
 
@@ -32,14 +40,24 @@
 
 .button {
 	margin-top: 32px;
+
+	@include mobile {
+		width: 100%;
+	}
 }
 
 .bannerTitle {
+	text-transform: uppercase;
 	font-size: 28px;
 	line-height: 38px;
 	font-weight: 400;
 
 	margin-bottom: 12px;
+
+	@include mobile {
+		font-size: 18px;
+		line-height: 24px;
+	}
 }
 
 .bannerImage {

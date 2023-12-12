@@ -14,14 +14,14 @@
 }
 
 .projectName {
+	font-size: 40px !important;
 	text-transform: uppercase;
-	font-size: 40px;
 	line-height: 42px;
 	font-weight: 700;
-	color: $white;
+	color: $white !important;
 
 	@include tablet {
-		font-size: 24px;
+		font-size: 24px !important;
 	}
 }
 
@@ -30,14 +30,15 @@
 	gap: 40px;
 
 	a {
-		color: $white;
+		color: $white !important;
 		font-weight: 400;
 		font-size: 18px;
 
 		transition: opacity 0.5s ease;
 
 		&:hover {
-			opacity: 0.8;
+			opacity: 0.8 !important;
+			color: $white;
 		}
 	}
 
@@ -104,14 +105,15 @@
 }
 .content {
 	a {
-		color: $white;
+		color: $white !important;
 		font-size: 16px;
 		line-height: 22px;
 
 		transition: opacity 0.5s ease;
 
 		&:hover {
-			opacity: 0.8;
+			opacity: 0.8 !important;
+			color: $white;
 		}
 
 		&:not(:last-child) {

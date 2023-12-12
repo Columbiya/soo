@@ -1,4 +1,4 @@
-import { generateButtonMap } from '@/helpers'
+import { classNames, generateButtonMap } from '@/helpers'
 import { ButtonKind, ButtonSize, ButtonType } from '@/types'
 import { ButtonHTMLAttributes, FC, AnchorHTMLAttributes } from 'react'
 
@@ -29,7 +29,7 @@ export const Button: FC<ButtonProps> = ({
 
 	if (href) {
 		return (
-			<Link href={href} className={classes}>
+			<Link href={href} className={classNames(classes, 'button')}>
 				{children}
 			</Link>
 		)

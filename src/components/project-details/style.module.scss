@@ -143,6 +143,7 @@
 
 	@include mobile {
 		margin-bottom: 0;
+		padding: 20px;
 	}
 }
 
@@ -163,9 +164,21 @@
 	position: sticky;
 	top: 15px;
 
-	margin-bottom: 48px;
-
 	@include mobile {
 		margin-bottom: 0;
+	}
+}
+
+.communityContainer {
+	margin: 100px auto;
+
+	@include mobile {
+		margin: 40px 0;
+	}
+
+	.button {
+		@include mobile {
+			width: 100%;
+		}
 	}
 }

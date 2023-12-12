@@ -28,7 +28,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 	const { showAsList } = useContext(ProjectsContext)
 
 	const router = useRouter()
-	const limit = parseInt(router.query.limit as string) || 5
+	const limit = parseInt(router.query.limit as string) || 10
 	const page = parseInt(router.query.page as string) || 1
 	const pagesCount = Math.ceil(totalCount / limit)
 
@@ -78,9 +78,8 @@ export const ProjectsList: FC<ProjectsListProps> = ({ items, totalCount }) => {
 						count={pagesCount}
 						page={page}
 						onChange={onPageChange}
-						hidePrevButton={page === 1}
-						hideNextButton={page === pagesCount}
 						color="primary"
+						shape="rounded"
 					/>
 				</div>
 			)}
