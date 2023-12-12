@@ -79,8 +79,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 	const onStageChange = (nextStage: string) => {
 		if (nextStage === state.stage) {
 			onChange('stage')('')
+			onFiltersChange({ ...state, stage: '' })
 		} else {
 			onChange('stage')(nextStage)
+			onFiltersChange({ ...state, stage: nextStage })
 		}
 	}
 
@@ -145,7 +147,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 						<div className={cl.typeFilterItem}>
 							Вид документа:
 							<Select
-								onChange={(e) => onChange('documentType')(e.target.value)}
+								onChange={(e) => {
+									onChange('documentType')(e.target.value)
+									onFiltersChange({ ...state, documentType: e.target.value })
+								}}
 								value={state.documentType}
 								className="plain-select"
 							>
@@ -160,7 +165,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 						<div className={cl.typeFilterItem}>
 							Период:
 							<Select
-								onChange={(e) => onChange('period')(e.target.value)}
+								onChange={(e) => {
+									onChange('period')(e.target.value)
+									onFiltersChange({ ...state, period: e.target.value })
+								}}
 								value={state.period}
 								className="plain-select"
 							>
@@ -178,7 +186,10 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							Выводить по:
 							<Select
 								value={state.limit.toString()}
-								onChange={(e) => onChange('limit')(e.target.value)}
+								onChange={(e) => {
+									onChange('limit')(e.target.value)
+									onFiltersChange({ ...state, limit: e.target.value })
+								}}
 								className="plain-select"
 							>
 								{showEachItems.map((each) => (
