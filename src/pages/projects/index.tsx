@@ -44,8 +44,6 @@ export default function Projects({ projects }: { projects: string }) {
 		[projects]
 	)
 
-	console.log({ projectsParsed })
-
 	return (
 		<>
 			<Head>

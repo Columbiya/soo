@@ -23,7 +23,9 @@ type ProjectFilterProps = {
 	onFiltersChange: (next: Partial<ProjectFilterParams>) => void
 }
 
-interface ProjectFilterFormValues extends ProjectFilterParams {}
+interface ProjectFilterFormValues extends Omit<ProjectFilterParams, 'stage'> {
+	stage: string[]
+}
 
 export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 	const { onChangeAsList, showAsList } = useContext(ProjectsContext)
@@ -38,6 +40,15 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 	const { documentType, limit, locality, page, period, search, stage } =
 		router.query as Partial<ProjectFilterParams>
 
+	const getParsedStage = (s: string) => {
+		try {
+			return JSON.parse(s)
+		} catch (e) {
+			console.log(e)
+			return []
+		}
+	}
+
 	const { handleSubmit, onChange, state } = useForm<ProjectFilterFormValues>(
 		{
 			documentType: documentType || '',
@@ -46,7 +57,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 			page: page || '1',
 			period: period || '',
 			search: search || '',
-			stage: stage || ''
+			stage: stage ? getParsedStage(stage) : []
 		},
 		{
 			documentType: null,
@@ -77,13 +88,20 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 	}
 
 	const onStageChange = (nextStage: string) => {
-		if (nextStage === state.stage) {
-			onChange('stage')('')
-			onFiltersChange({ ...state, stage: '' })
+		let newStages: string[]
+
+		if (state.stage.includes(nextStage)) {
+			newStages = state.stage.filter((s) => s !== nextStage)
 		} else {
-			onChange('stage')(nextStage)
-			onFiltersChange({ ...state, stage: nextStage })
+			newStages = [...state.stage, nextStage]
 		}
+
+		onChange('stage')(newStages)
+		onFiltersChange({ ...state, stage: JSON.stringify(newStages) })
+	}
+
+	const isStageActive = (stage: string) => {
+		return state.stage.includes(stage)
 	}
 
 	useEffect(() => {
@@ -102,6 +120,17 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 						value={state.locality}
 						onChange={(e) => onChange('locality')(e.target.value)}
 						className={cl.localitySelect}
+						MenuProps={{
+							anchorOrigin: {
+								vertical: 'bottom',
+								horizontal: 'left'
+							},
+							transformOrigin: {
+								vertical: 'top',
+								horizontal: 'left'
+							},
+							getContentAnchorEl: null
+						}}
 					>
 						{filters &&
 							filters.localities.map((l) => (
@@ -132,7 +161,7 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							.map((s) => (
 								<span
 									className={classNames(cl.stageToggle, {
-										[cl.active]: s === state.stage
+										[cl.active]: isStageActive(s)
 									})}
 									onClick={() => onStageChange(s)}
 									key={s}
@@ -149,7 +178,22 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							<Select
 								onChange={(e) => {
 									onChange('documentType')(e.target.value)
-									onFiltersChange({ ...state, documentType: e.target.value })
+									onFiltersChange({
+										...state,
+										stage: JSON.stringify(state.stage),
+										documentType: e.target.value
+									})
+								}}
+								MenuProps={{
+									anchorOrigin: {
+										vertical: 'bottom',
+										horizontal: 'left'
+									},
+									transformOrigin: {
+										vertical: 'top',
+										horizontal: 'left'
+									},
+									getContentAnchorEl: null
 								}}
 								value={state.documentType}
 								className="plain-select"
@@ -167,7 +211,22 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 							<Select
 								onChange={(e) => {
 									onChange('period')(e.target.value)
-									onFiltersChange({ ...state, period: e.target.value })
+									onFiltersChange({
+										...state,
+										stage: JSON.stringify(state.stage),
+										period: e.target.value
+									})
+								}}
+								MenuProps={{
+									anchorOrigin: {
+										vertical: 'bottom',
+										horizontal: 'left'
+									},
+									transformOrigin: {
+										vertical: 'top',
+										horizontal: 'left'
+									},
+									getContentAnchorEl: null
 								}}
 								value={state.period}
 								className="plain-select"
@@ -188,7 +247,22 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 								value={state.limit.toString()}
 								onChange={(e) => {
 									onChange('limit')(e.target.value)
-									onFiltersChange({ ...state, limit: e.target.value })
+									onFiltersChange({
+										...state,
+										stage: JSON.stringify(state.stage),
+										limit: e.target.value
+									})
+								}}
+								MenuProps={{
+									anchorOrigin: {
+										vertical: 'bottom',
+										horizontal: 'left'
+									},
+									transformOrigin: {
+										vertical: 'top',
+										horizontal: 'left'
+									},
+									getContentAnchorEl: null
 								}}
 								className="plain-select"
 							>

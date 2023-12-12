@@ -26,7 +26,11 @@ export const Footer = () => {
 
 				<div className={cl.content}>
 					<div>
-						<span>© 2023 «Общественные обсуждения». Все права защищены</span>
+						<span>
+							© 2023 «Портал общественных обсуждений градостроительных проектов
+							Республики Башкортостан». <br />
+							Все права защищены
+						</span>
 						<span className={cl.withImage}>
 							<img
 								src="/images/common/footer/rb.svg"
@@ -46,7 +50,6 @@ export const Footer = () => {
 						<Link href="/feedback">Обратная связь</Link>
 					</div>
 					<nav className={cl.footerSubNav}>
-						<Link href="/partners">Условия участия в проекте</Link>
 						<Link href="/politics">Политика конфиденциальности</Link>
 					</nav>
 				</div>
