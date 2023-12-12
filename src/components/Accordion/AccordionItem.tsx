@@ -56,7 +56,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 				[cl.open]: isOpen
 			})}
 		>
-			<header onClick={() => onOpen(id)} className={cl.header}>
+			<header onClick={() => onOpen(isOpen ? '' : id)} className={cl.header}>
 				<span>{header}</span>
 
 				<Image

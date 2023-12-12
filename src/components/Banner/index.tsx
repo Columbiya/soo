@@ -23,6 +23,8 @@ export const Banner = () => {
 						buttonSize={ButtonSize.Default}
 						buttonType={ButtonType.White}
 						className={cl.button}
+						href="http://gisogdrb.ru"
+						target="_blank"
 					>
 						Подробнее
 					</Button>

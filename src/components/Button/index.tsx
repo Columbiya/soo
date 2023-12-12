@@ -3,12 +3,13 @@ import { ButtonKind, ButtonSize, ButtonType } from '@/types'
 import { ButtonHTMLAttributes, FC, AnchorHTMLAttributes } from 'react'
 
 import cl from './style.module.scss'
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	buttonType?: ButtonType
 	buttonSize?: ButtonSize
 	buttonKind?: ButtonKind
+	target?: AnchorHTMLAttributes<HTMLAnchorElement>['target']
 	href?: string
 }
 
@@ -21,6 +22,7 @@ export const Button: FC<ButtonProps> = ({
 	buttonKind = ButtonKind.Rounded,
 	className,
 	href,
+	target,
 	...props
 }) => {
 	const classes = `${cl.button} ${className} ${classesMap.get(
@@ -29,7 +31,11 @@ export const Button: FC<ButtonProps> = ({
 
 	if (href) {
 		return (
-			<Link href={href} className={classNames(classes, 'button')}>
+			<Link
+				href={href}
+				className={classNames(classes, 'button')}
+				target={target}
+			>
 				{children}
 			</Link>
 		)
