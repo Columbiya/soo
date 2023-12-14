@@ -178,11 +178,37 @@
 .imageTitle {
 	text-transform: uppercase;
 	font-size: 24px;
+	font-weight: 800;
+	color: #000;
+
+	position: relative;
+	z-index: 55;
+
+	max-width: 200px;
+	text-align: center;
+	line-height: 30px;
 }
 
 .emptyImage {
+	position: relative;
 	width: 100%;
 	min-height: 240px;
 	display: grid;
 	place-items: center;
+	cursor: pointer;
+
+	overflow: hidden;
+	border-radius: 5px;
+
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
+	}
+
+	img {
+		z-index: 5;
+
+		transition: transform 0.5s ease;
+	}
 }

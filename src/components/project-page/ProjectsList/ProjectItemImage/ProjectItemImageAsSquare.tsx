@@ -20,7 +20,7 @@ export const ProjectItemImageAsSquare: FC<ProjectItemImageProps> = ({
 	id
 }) => {
 	if (!src) {
-		return <EmptyImage title={title} />
+		return <EmptyImage title={title} id={id} />
 	}
 
 	return (

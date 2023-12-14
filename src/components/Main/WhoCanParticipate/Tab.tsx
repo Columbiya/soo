@@ -15,7 +15,6 @@ type TabProps = {
 }
 
 export const Tab: FC<TabProps> = ({ id, image, text }) => {
-	console.log({ id })
 	return (
 		<span className={cl.tab}>
 			<span>{text}</span>
@@ -29,14 +28,6 @@ export const Tab: FC<TabProps> = ({ id, image, text }) => {
 				})}
 			/>
 
-			{/* <dotlottie-player
-				src='https://lottie.host/8a8e04bc-d979-4731-8110-23d9ba0342ed/BDplhE6vUg.json"'
-				background="transparent"
-				speed="1"
-				style={{ width: '300px', height: '300px' }}
-				loop
-				autoplay
-			></dotlottie-player> */}
 			<Image src="/images/main/who-can-participate-tab-image.svg" alt="" fill />
 
 			{id === '3' && (
