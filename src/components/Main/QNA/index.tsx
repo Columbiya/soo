@@ -26,7 +26,7 @@ export const QNA: FC<QnaProps> = ({ questionsAndAnswers, className }) => {
 							accordion?.map(({ text, title }) => ({
 								id: title,
 								header: title,
-								children: text
+								children: <div dangerouslySetInnerHTML={{ __html: text }} />
 							})) || []
 						}
 					/>

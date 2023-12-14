@@ -2,19 +2,21 @@ import { useMemo } from 'react'
 import CountUp from 'react-countup'
 import { Container, MostPopularProjects } from '@/components'
 import styles from './page.module.scss'
-import {
-	AboutService,
-	Feedback,
-	HowThisWorks,
-	QNA,
-	WhoCanParticipate
-} from '@/components/Main'
+import { AboutService, Feedback, HowThisWorks, QNA } from '@/components/Main'
 import { Constants } from '@/types'
 import { MainContentResponseType, MainMostViewedProjects } from '@/types/fetch'
 import Head from 'next/head'
 import { ProjectItem } from '@/types/fetch/projects'
+import dynamic from 'next/dynamic'
 
 type AchievmentType = { amount: string; text: string }
+
+const WhoCanParticipate = dynamic(
+	() => import('../components/Main/WhoCanParticipate'),
+	{
+		ssr: false
+	}
+)
 
 export async function getServerSideProps() {
 	const content = (await fetch(`${Constants.BASE_URL}/content/main`).then(

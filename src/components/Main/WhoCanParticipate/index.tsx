@@ -3,25 +3,27 @@ import { FC, useMemo } from 'react'
 import { TabsItem } from '@/components/Tabs/types'
 import cl from './style.module.scss'
 import { BlockTitle, Container, Tabs } from '@/components'
-import { Tab } from './Tab'
 import { WhoInProjectItem } from '@/types/fetch'
 import { TabItem } from './TabItem'
+import dynamic from 'next/dynamic'
+
+const Tab = dynamic(() => import('./Tab'), { ssr: false })
 
 const items: TabsItem[] = [
 	{
 		id: '1',
 		children: <div>1 tab</div>,
-		tab: '/images/main/1-st-tab-image.svg'
+		tab: 'https://lottie.host/e540e8c9-b9a5-463b-b454-d8573857597e/nVhduIfV3X.json'
 	},
 	{
 		id: '2',
 		children: <div>2 tab</div>,
-		tab: '/images/main/2-nd-tab-image.svg'
+		tab: 'https://lottie.host/85bf0bfe-9f38-43d2-ba16-19ef3c03d661/Qonvci7Tz0.json'
 	},
 	{
 		id: '3',
 		children: <div>3 tab</div>,
-		tab: '/images/main/3-rd-tab-image.svg'
+		tab: 'https://lottie.host/8a8e04bc-d979-4731-8110-23d9ba0342ed/BDplhE6vUg.json'
 	}
 ]
 
@@ -54,3 +56,5 @@ export const WhoCanParticipate: FC<WhoCanParticipateProps> = ({
 		</Container>
 	)
 }
+
+export default WhoCanParticipate
