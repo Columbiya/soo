@@ -61,9 +61,19 @@
 		z-index: 1;
 		background: none;
 
-		@include tablet {
+		@include desktop_base {
 			display: none;
 		}
+
+		&.third {
+			right: 30px;
+		}
+	}
+
+	.extraImage {
+		position: absolute;
+		top: -30px;
+		right: 0;
 	}
 
 	@include desktop_base {

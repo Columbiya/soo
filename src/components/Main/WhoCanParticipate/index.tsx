@@ -38,7 +38,9 @@ export const WhoCanParticipate: FC<WhoCanParticipateProps> = ({
 		() =>
 			whoInProject?.map((w, i) => ({
 				id: w.id.toString(),
-				tab: <Tab text={w.title} image={items[i].tab as string} />,
+				tab: (
+					<Tab text={w.title} image={items[i].tab as string} id={items[i].id} />
+				),
 				children: <TabItem {...w} />
 			})),
 		[whoInProject]
