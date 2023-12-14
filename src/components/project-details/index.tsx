@@ -48,7 +48,17 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 
 		items.push({
 			id: '1',
-			children: <div dangerouslySetInnerHTML={{ __html: projectMaterials }} />,
+			children: (
+				<div>
+					<p className={cl.tabItemText}>
+						Просим Вас внимательно отнестись к скачиванию больших объемов
+						данных. Вам может потребоваться дополнительное дисковое пространство
+						на вашем устройстве, а также процесс скачивания может занять
+						продолжительное время.
+					</p>
+					<div dangerouslySetInnerHTML={{ __html: projectMaterials }} />
+				</div>
+			),
 			header: 'Материалы проекта'
 		})
 
@@ -181,7 +191,6 @@ export const ProjectDetails: FC<ProjectDetails> = ({
 								<span>Окончание: {dateEnd}</span>
 
 								<h4 className={cl.sidebarTitle}>Границы проведения</h4>
-								<span>Кадастровый капитал</span>
 								{/* Уточнить */}
 								<span>{boundariesEvent}</span>
 

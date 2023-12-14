@@ -7,23 +7,15 @@ import { ButtonKind, ButtonSize, ButtonType, Constants } from '@/types'
 import Link from 'next/link'
 import { Button, Label } from '@/components'
 import { classNames, formatDate } from '@/helpers'
+import { ProjectItemImage } from '../ProjectItemImage'
 
 type ProjectItemAsListItemProps = ProjectItem
 
 export const ProjectItemAsListItem: FC<ProjectItemAsListItemProps> = (item) => {
 	return (
 		<div className={classNames(cl.item, cl.listItem)}>
-			<div className={cl.imageContainer}>
-				<Link href={`/projects/${item.id.toString()}`}>
-					<Image
-						src={`${Constants.UPLOAD_URL}${item.image}`}
-						alt=""
-						fill
-						className={cl.image}
-						objectFit="cover"
-					/>
-				</Link>
-			</div>
+			<ProjectItemImage id={item.id} src={item.image} title={item.name} />
+
 			<div className={cl.content}>
 				<h3>{item.name}</h3>
 				<div className={cl.labels}>
@@ -42,7 +34,7 @@ export const ProjectItemAsListItem: FC<ProjectItemAsListItemProps> = (item) => {
 					href={`/projects/${item.id.toString()}`}
 					className={cl.listItemButton}
 				>
-					Изучить проект
+					Узнать о проекте
 				</Button>
 			</div>
 		</div>

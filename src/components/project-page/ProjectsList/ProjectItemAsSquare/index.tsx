@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ButtonKind, ButtonSize, ButtonType, Constants } from '@/types'
 import { Button, Label } from '@/components'
 import Link from 'next/link'
+import { ProjectItemImageAsSquare } from '../ProjectItemImage/ProjectItemImageAsSquare'
 
 type ProjectItemAsSquareProps = ProjectItem
 
@@ -23,17 +24,7 @@ export const ProjectItemAsSquare: FC<ProjectItemAsSquareProps> = ({
 }) => {
 	return (
 		<div className={classNames(cl.squareItem, cl.item)}>
-			<header className={cl.squareItemHeader}>
-				<Link href={`/projects/${id.toString()}`}>
-					<Image
-						src={`${Constants.UPLOAD_URL}${image}`}
-						alt=""
-						fill
-						className={cl.image}
-						objectFit="cover"
-					/>
-				</Link>
-			</header>
+			<ProjectItemImageAsSquare id={id} title={name} src={image} />
 
 			<footer className={cl.footer}>
 				<div className={cl.footerContentContainer}>
@@ -55,7 +46,7 @@ export const ProjectItemAsSquare: FC<ProjectItemAsSquareProps> = ({
 					href={`/projects/${id.toString()}`}
 					className={cl.button}
 				>
-					Изучить проект
+					Узнать о проекте
 				</Button>
 			</footer>
 		</div>

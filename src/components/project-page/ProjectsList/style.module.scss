@@ -174,3 +174,15 @@
 	flex-direction: column;
 	height: 100%;
 }
+
+.imageTitle {
+	text-transform: uppercase;
+	font-size: 24px;
+}
+
+.emptyImage {
+	width: 100%;
+	min-height: 240px;
+	display: grid;
+	place-items: center;
+}
