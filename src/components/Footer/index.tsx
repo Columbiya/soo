@@ -47,7 +47,6 @@ export const Footer = () => {
 							/>
 							Министерство строительства и архитектуры Республики Башкортостан
 						</span>
-						<Link href="/feedback">Обратная связь</Link>
 					</div>
 					<nav className={cl.footerSubNav}>
 						<Link href="/politics">Политика конфиденциальности</Link>
