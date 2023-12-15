@@ -129,7 +129,12 @@ export const ProjectFilter: FC<ProjectFilterProps> = ({ onFiltersChange }) => {
 								vertical: 'top',
 								horizontal: 'left'
 							},
-							getContentAnchorEl: null
+							getContentAnchorEl: null,
+							PaperProps: {
+								sx: {
+									maxHeight: 250
+								}
+							}
 						}}
 					>
 						{filters &&

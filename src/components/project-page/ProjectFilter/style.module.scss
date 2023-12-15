@@ -135,6 +135,9 @@
 	border-bottom-right-radius: 0 !important;
 	border-right: none !important;
 
+	max-width: 200px;
+	overflow: hidden;
+
 	position: relative;
 
 	& > div {
