@@ -68,3 +68,12 @@
 		color: $green-primary;
 	}
 }
+
+.textListContainer {
+	background: $white;
+	padding: 24px 32px;
+
+	@include mobile {
+		padding: 12px 16px;
+	}
+}

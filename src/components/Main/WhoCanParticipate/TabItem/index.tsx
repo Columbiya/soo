@@ -17,10 +17,21 @@ export const TabItem: FC<TabItemProps> = ({
 	manual,
 	nonResidential,
 	residential,
+	textList,
 	title
 }) => {
 	const accordionItems = useMemo<AccordionItem[]>(() => {
 		const items: AccordionItem[] = []
+
+		if (textList) {
+			items.push({
+				id: '1',
+				header: '???',
+				children: <List items={textList} type={ListTypes.OL} />
+			})
+
+			return items
+		}
 
 		if (residential) {
 			items.push({
@@ -39,7 +50,7 @@ export const TabItem: FC<TabItemProps> = ({
 		}
 
 		return items
-	}, [nonResidential, residential])
+	}, [nonResidential, residential, textList])
 	return (
 		<section className={cl.tab}>
 			<h3 className={cl.title}>Инструкция</h3>
@@ -59,12 +70,17 @@ export const TabItem: FC<TabItemProps> = ({
 			)}
 
 			<h5 className={cl.subtitle}>Подтвердите свое право на собственность</h5>
-
-			<Accordion
-				items={accordionItems}
-				className={cl.accordion}
-				key={Date.now()}
-			/>
+			{textList ? (
+				<div className={cl.textListContainer}>
+					<List items={textList} type={ListTypes.OL} />
+				</div>
+			) : (
+				<Accordion
+					items={accordionItems}
+					className={cl.accordion}
+					key={Date.now()}
+				/>
+			)}
 		</section>
 	)
 }

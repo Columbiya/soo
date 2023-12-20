@@ -72,15 +72,8 @@ export default function Home({
 			<Container>
 				<div className={styles.mainBlock}>
 					<div className={styles.content}>
-						<h1 className={styles.title}>
-							Портал общественных обсуждений градостроительных проектов
-							Республики Башкортостан
-						</h1>
-						<p className={styles.text}>
-							Сервис, с помощью которого жители города могут ознакомиться с
-							градостроительными проектами, задать вопросы архитекторам и
-							разработчикам проектов и оставить свои предложения и замечания
-						</p>
+						<h1 className={styles.title}>{header.title}</h1>
+						<p className={styles.text}>{header.text}</p>
 						<div className={styles.achievements}>
 							{header.list.map((a) => (
 								<div className={styles.achievement} key={a.text}>

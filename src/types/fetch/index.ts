@@ -19,6 +19,7 @@ export type WhoInProjectItem = {
 	img: string
 	residential: string[]
 	nonResidential: string[]
+	textList: string[]
 }
 
 export type QuestionsAndAnswersItem = {
